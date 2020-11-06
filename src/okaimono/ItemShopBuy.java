@@ -2,6 +2,7 @@ package okaimono;
 
 public class ItemShopBuy {
 	public void optionDisply() {
+
 		System.out.println
 				("-------------");
 		System.out.println
