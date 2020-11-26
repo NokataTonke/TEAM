@@ -7,10 +7,10 @@ public class Main {
 			System.out.println
 					("【何をしようか？】");
 			System.out.println
-					("[あなたの所持金] \\" + HeroBag.money);
+					("[あなたの所持金] \\" + Bag.money);
 			System.out.println();
 			System.out.println
-					("1.アイテム屋へ 2.武具屋へ 3.バック確認");
+					("1.アイテム屋へ 2.武具屋へ 3.バック確認 4.ステータス確認");
 			System.out.println();
 
 			int i = new java.util.Scanner(System.in).nextInt();
@@ -31,10 +31,10 @@ public class Main {
 					ow.goWeaponShop();
 					break;
 				case 3:
-					HeroBag hb = new HeroBag();
-					hb.showBag();
+					Bag b = new Bag();
+					b.showBag();
 					break;
-				default:
+				case 4:
 					int j;
 
 					Weapon w = new Weapon();

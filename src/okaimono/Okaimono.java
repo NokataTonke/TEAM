@@ -6,7 +6,7 @@ public class Okaimono {
 		System.out.println
 				("アイテム屋のおばちゃん：「いらっしゃい！いいものあるよ。」");
 		System.out.println
-				("[あなたの所持金] \\" + HeroBag.money);
+				("[あなたの所持金] \\" + Bag.money);
 		System.out.println();
 
 		while(true) {

@@ -4,7 +4,7 @@ public class SellConfirm {
 	public void sellConfirm(int i, int hbItem) {
 		String selectItem = null;
 		int sellingPrice = 0;
-		int nowMoney = HeroBag.money;
+		int nowMoney = Bag.money;
 
 		switch(i) {
 			case 1:
@@ -36,7 +36,7 @@ public class SellConfirm {
 		System.out.println
 				("[買取金額] \\" + sellingPrice);
 		System.out.println
-				("[あなたの所持金] \\" + HeroBag.money + "　→　\\" + (nowMoney + sellingPrice));
+				("[あなたの所持金] \\" + Bag.money + "　→　\\" + (nowMoney + sellingPrice));
 		System.out.println
 				("現在の" + selectItem + "所持数：" + hbItem + "個");
 		System.out.println
@@ -53,28 +53,28 @@ public class SellConfirm {
 						(selectItem + "を1つ売った！");
 					switch(i) {
 						case 1:
-							HeroBag.yakuso--;
-							HeroBag.money += sellingPrice;
+							Bag.yakuso--;
+							Bag.money += sellingPrice;
 							break;
 						case 2:
-							HeroBag.shodoku--;
-							HeroBag.money += sellingPrice;
+							Bag.shodoku--;
+							Bag.money += sellingPrice;
 							break;
 						case 3:
-							HeroBag.sake--;
-							HeroBag.money += sellingPrice;
+							Bag.sake--;
+							Bag.money += sellingPrice;
 							break;
 						case 4:
-							HeroBag.enmaku--;
-							HeroBag.money += sellingPrice;
+							Bag.enmaku--;
+							Bag.money += sellingPrice;
 							break;
 						case 5:
-							HeroBag.tabako--;
-							HeroBag.money += sellingPrice;
+							Bag.tabako--;
+							Bag.money += sellingPrice;
 							break;
 					}
 					System.out.println
-							("[あなたの所持金] \\" + HeroBag.money);
+							("[あなたの所持金] \\" + Bag.money);
 					System.out.println();
 
 				} else { // 選択した売りたいアイテムが1つもない（0以下）の場合

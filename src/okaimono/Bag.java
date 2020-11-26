@@ -1,6 +1,6 @@
 package okaimono;
 
-public class HeroBag {
+public class Bag {
 	static int money = 10000;
 	static int yakuso;
 	static int shodoku;
@@ -14,18 +14,18 @@ public class HeroBag {
 		System.out.println
 				("-------------");
 		System.out.println
-				("所持金：" + "\\" + HeroBag.money);
+				("所持金：" + "\\" + Bag.money);
 		System.out.println();
 		System.out.println
-				("薬草　：" + HeroBag.yakuso + "個");
+				("薬草　：" + Bag.yakuso + "個");
 		System.out.println
-				("消毒薬：" + HeroBag.shodoku + "個");
+				("消毒薬：" + Bag.shodoku + "個");
 		System.out.println
-				("酒　　：" + HeroBag.sake + "個");
+				("酒　　：" + Bag.sake + "個");
 		System.out.println
-				("煙幕　：" + HeroBag.enmaku + "個");
+				("煙幕　：" + Bag.enmaku + "個");
 		System.out.println
-				("タバコ：" + HeroBag.tabako + "個");
+				("タバコ：" + Bag.tabako + "個");
 		System.out.println
 				("-------------");
 		System.out.println();

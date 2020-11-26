@@ -2,16 +2,25 @@ package okaimono;
 
 public class Hero {
 	//フィールド
+	//ATKはLevel依存なのでフィールド宣言とセッターをなくした
+	//LevelもEXP依存だが、処理が面倒っぽい
+
+	//！Level20のときは()中の日本語を変える
+
+	private int EXP = 56;
+	private int Level = 6;
 	private int HP;
 	private int MP;
-	private int EXP;
-	private int ATK;
-	private int Level;
-	private int HPMAX;
-	private int MPMAX;
+	int HPMAX;
+	int MPMAX;
 	private Weapon w;
 	final int LevelMAX = 30;
-	private String name;
+	private String name = "クラウド";
+	int EXPArray[] = {
+					  10, 10, 10, 10, 10, 10, 10, 10, 10,
+					  20, 20, 20, 20, 20, 20, 20,
+					  30, 30, 30, 30,
+	};
 
 	//Getter,Setter
 	public String getName() {
@@ -23,8 +32,17 @@ public class Hero {
 	public int getLevel() {
 		return this.Level;
 	}
-	public void setLevel(int Level) {
-		this.Level = Level;
+	public int getEXP() {
+		return this.EXP;
+	}
+	public void setEXP(int EXP) {
+		this.EXP = EXP;
+	}
+	public Weapon getWeapon() {
+		return this.w;
+	}
+	public void setWeapon(Weapon w) {
+		this.w = w;
 	}
 	public int getHP() {
 		return this.HP;
@@ -35,39 +53,7 @@ public class Hero {
 	public int getMP() {
 		return this.MP;
 	}
-	public void setMP(int MP) {
-		this.MP = MP;
-	}
-	public int getEXP() {
-		return this.EXP;
-	}
-	public void setEXP(int EXP) {
-		this.EXP = EXP;
-	}
-	public int getATK() {
-		return this.ATK;
-	}
-	public void setATK(int ATK) {
-		this.ATK = ATK;
-	}
-	public int getHPMAX() {
-		return this.HPMAX;
-	}
-	public void setHPMAX(int HPMAX) {
-		this.HPMAX = HPMAX;
-	}
-	public int getMPMAX() {
-		return this.MPMAX;
-	}
-	public void setMPMAX(int MPMAX) {
-		this.MPMAX = MPMAX;
-	}
-	public Weapon getWeapon() {
-		return this.w;
-	}
-	public void setWeapon(Weapon w) {
-		this.w = w;
-	}
+
 
 //	public void attack(Monster m) {
 		//バトルで使用される攻撃メソッドの中身をここに記述
@@ -80,17 +66,18 @@ public class Hero {
 		System.out.println("----------");
 		System.out.println();
 		System.out.println(
-				"勇者" + getName() + "　Lv" + getLevel() + "あと" + "ほにゃ" + "EXPでLvUP"
+				"勇者" + getName() + "　Lv" + getLevel() + "(あと" + restEXP() + "EXPでLvUP)"
+		);
+		System.out.println();
+		System.out.println(
+				"　　　　　HP:" + getMAXHP() + " MP:" + getMAXMP()
 		);
 		System.out.println(
-				"　　　　　HP:" + getHP() + " MP:" + getMP()
-		);
-		System.out.println(
-				"　　　　　EXP:" + getEXP() + " 所持金:" + HeroBag.money
+				"　　　　　EXP:" + getEXP() + " 所持金:" + Bag.money
 		);
 		System.out.println(
 				"　　　　　装備:" +
-						getWeapon().getName() + "(ATK" + getWeapon().getATK() + ")"
+						getWeapon().getName() + "(ATK:" + getWeapon().getATK() + ")"
 		);
 		System.out.println(
 				"　　　　　ATK:" +
@@ -103,5 +90,48 @@ public class Hero {
 		System.out.println();
 		System.out.println("　　　　　　　　0.戻る");
 		System.out.println("----------");
+	}
+
+	public int restEXP() {
+		int nextEXP = 0;
+		int restEXP;
+
+		for (int j=0; j<getLevel(); j++) {
+			nextEXP += EXPArray[j];
+		}
+
+		restEXP = nextEXP - getEXP();
+
+		return restEXP;
+	}
+
+//	public int getLevel() {
+
+//	}
+
+	public int getATK() {
+		int atkSUM = 9;
+		for (int i=0; i<getLevel(); i++) {
+			atkSUM++;
+		}
+		return atkSUM;
+	}
+	public int getMAXHP() {
+		int MAXHP = 48;
+		for (int i=0; i<getLevel(); i++) {
+			MAXHP += 2;
+		}
+		HPMAX = MAXHP;
+		return MAXHP;
+	}
+	public int getMAXMP() {
+		int MAXMP = 20;
+		if (getLevel() >= 17) {
+			MAXMP = 40;
+		} else if (getLevel() >= 10) {
+			MAXMP = 30;
+		}
+		MPMAX = MAXMP;
+		return MAXMP;
 	}
 }
