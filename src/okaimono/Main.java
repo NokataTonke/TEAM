@@ -35,6 +35,26 @@ public class Main {
 					hb.showBag();
 					break;
 				default:
+					int j;
+
+					Weapon w = new Weapon();
+					w.equipWeapon(2);
+//					w.showWeapon();
+
+
+					Hero h = new Hero();
+					h.setWeapon(w);
+					h.showStatus();
+
+
+
+					j = new java.util.Scanner(System.in).nextInt();
+					if (j == 0) {
+						break;
+					}
+
+//					Hero h = new Hero();
+//					h.showStatus();
 			}
 		}
 	}
