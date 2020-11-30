@@ -1,7 +1,14 @@
 package okaimono;
 
 public class Okaimono {
-	public void goItemShop() {
+	Bag b;
+	Weapon w;
+
+	public Okaimono(Bag b, Weapon w) {
+		this.b = b;
+		this.w = w;
+	}
+	public void goItemShop(Bag b) {
 		System.out.println("-------------");
 		System.out.println
 				("アイテム屋のおばちゃん：「いらっしゃい！いいものあるよ。」");
@@ -16,11 +23,11 @@ public class Okaimono {
 			switch (i) {
 				case 1:
 					ItemShopBuy isb = new ItemShopBuy();
-					isb.optionDisply();
+					isb.optionDisply(b);
 					break;
 				case 2:
 					ItemShopSell iss = new ItemShopSell();
-					iss.optionDisply();
+					iss.optionDisply(b);
 					break;
 				case 3:
 					ItemShopTalk.toObatyan();
@@ -37,7 +44,7 @@ public class Okaimono {
 			}
 		}
 	}
-	public void goWeaponShop() {
+	public void goWeaponShop(Weapon w) {
 		System.out.println
 				("-------------");
 		System.out.println

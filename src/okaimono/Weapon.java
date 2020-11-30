@@ -60,6 +60,13 @@ public class Weapon {
 		}
 	}
 
+	public void gainWeapon(int weaponNumber) {
+		haveArray[weaponNumber] = true;
+	}
+	public void loseWeapon(int weaponNumber) {
+		haveArray[weaponNumber] = false;
+	}
+
 	public void test() {
 		for(int i = 0; i < 3; i++) {
 			if(haveArray[i] == true) {

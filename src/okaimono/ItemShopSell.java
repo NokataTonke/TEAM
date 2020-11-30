@@ -1,7 +1,7 @@
 package okaimono;
 
 public class ItemShopSell {
-	public void optionDisply() {
+	public void optionDisply(Bag b) {
 
 		System.out.println
 				("-------------");

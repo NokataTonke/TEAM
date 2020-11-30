@@ -8,7 +8,7 @@ public class Main {
 		w.equipWeapon(5);
 		Hero h = new Hero();
 		h.setWeapon(w);
-		Okaimono oi = new Okaimono();
+		Okaimono oi = new Okaimono(b, w);
 
 		while(true) {
 			System.out.println
@@ -23,7 +23,7 @@ public class Main {
 			int i = new java.util.Scanner(System.in).nextInt();
 			switch (i) {
 				case 1:
-					oi.goItemShop();
+					oi.goItemShop(b);
 					break;
 				case 2:
 
@@ -33,7 +33,7 @@ public class Main {
 					System.out.println("！！！！！！！！！！！！！");
 					System.out.println();
 
-					oi.goWeaponShop();
+					oi.goWeaponShop(w);
 					break;
 				case 3:
 					b.showBag();
