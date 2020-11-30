@@ -31,7 +31,7 @@ public class Hero {
 		setMP(getMPMAX());
 		setATK(getATK());
 	}
-	//宿屋用コンテナ（やもすると冗長）
+	//宿屋用コンテナ（冗長かも）
 	public Hero(int nowEXP) {
 		setLevel(nowEXP);
 		setHP(getHPMAX());

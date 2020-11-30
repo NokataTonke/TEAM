@@ -12,20 +12,20 @@ public class BuyConfirm {
 				selectPrice = 100;
 				break;
 			case 2:
-				selectItem = "エリクサー";
-				selectPrice = 250;
+				selectItem = "煙幕";
+				selectPrice = 500;
 				break;
 			case 3:
 				selectItem = "酒";
 				selectPrice = 300;
 				break;
 			case 4:
-				selectItem = "煙幕";
-				selectPrice = 500;
-				break;
-			case 5:
 				selectItem = "タバコ";
 				selectPrice = 3000;
+				break;
+			case 5:
+				selectItem = "エリクサー";
+				selectPrice = 250;
 				break;
 		}
 
@@ -40,6 +40,8 @@ public class BuyConfirm {
 
 		System.out.println
 				("[値段] \\" + selectPrice + " × " + buyCount);
+
+
 		System.out.println
 				("アイテム屋のおばちゃん：「" + buyCount + "個でいいんだね？」");
 
@@ -66,6 +68,8 @@ public class BuyConfirm {
 						System.out.println
 								(selectItem + "を" + buyCount + "個手に入れた！");
 						Bag.yakuso += buyCount;
+//						setYakuso(b.getYakuso() + buyCount);
+//						これは無理
 						Bag.money -= selectPrice * buyCount;
 					} else {
 						System.out.println
@@ -76,7 +80,7 @@ public class BuyConfirm {
 					if(Bag.money >= selectPrice * buyCount) {
 						System.out.println
 								(selectItem + "を" + buyCount + "個手に入れた！");
-						Bag.elixir += buyCount;
+						Bag.enmaku += buyCount;
 						Bag.money -= selectPrice * buyCount;
 					} else {
 						System.out.println
@@ -98,7 +102,7 @@ public class BuyConfirm {
 					if(Bag.money >= selectPrice * buyCount) {
 						System.out.println
 								(selectItem + "を" + buyCount + "個手に入れた！");
-						Bag.enmaku += buyCount;
+						Bag.tabako += buyCount;
 						Bag.money -= selectPrice * buyCount;
 					} else {
 						System.out.println
@@ -109,7 +113,7 @@ public class BuyConfirm {
 					if(Bag.money >= selectPrice * buyCount) {
 						System.out.println
 								(selectItem + "を" + buyCount + "個手に入れた！");
-						Bag.tabako += buyCount;
+						Bag.elixir += buyCount;
 						Bag.money -= selectPrice * buyCount;
 					} else {
 						System.out.println

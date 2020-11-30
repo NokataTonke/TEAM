@@ -42,6 +42,8 @@ public class Main {
 					j = new java.util.Scanner(System.in).nextInt();
 					if (j == 0) {
 						break;
+					} else {
+						continue;
 					}
 				case 4:
 					h.showStatus();
