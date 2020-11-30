@@ -12,7 +12,7 @@ public class ItemShopSell {
 		System.out.println();
 		System.out.println(
 				"1.薬草(\\100)" + "(" + Bag.yakuso + "有)　" +
-				"2.消毒薬(\\250)" + "(" + Bag.shodoku + "有)　" +
+				"2.エリクサー(\\250)" + "(" + Bag.elixir + "有)　" +
 				"3.酒(\\300)" +  "(" + Bag.sake + "有)　");
 		System.out.println(
 				"4.煙幕(\\500)" + "(" + Bag.enmaku + "有)　" +
@@ -27,7 +27,7 @@ public class ItemShopSell {
 				sc.sellConfirm(1, Bag.yakuso);
 				break;
 			case 2:
-				sc.sellConfirm(2, Bag.shodoku);
+				sc.sellConfirm(2, Bag.elixir);
 				break;
 			case 3:
 				sc.sellConfirm(3, Bag.sake);
@@ -51,7 +51,7 @@ public class ItemShopSell {
 			System.out.println();
 			System.out.println(
 					"1.薬草(\\100)" + "(" + Bag.yakuso + "有)　" +
-					"2.消毒薬(\\250)" + "(" + Bag.shodoku + "有)　" +
+					"2.エリクサー(\\250)" + "(" + Bag.elixir + "有)　" +
 					"3.酒(\\300)" +  "(" + Bag.sake + "有)　");
 			System.out.println(
 					"4.煙幕(\\500)" + "(" + Bag.enmaku + "有)　" +
@@ -65,7 +65,7 @@ public class ItemShopSell {
 					sc.sellConfirm(1, Bag.yakuso);
 					break;
 				case 2:
-					sc.sellConfirm(2, Bag.shodoku);
+					sc.sellConfirm(2, Bag.elixir);
 					break;
 				case 3:
 					sc.sellConfirm(3, Bag.sake);

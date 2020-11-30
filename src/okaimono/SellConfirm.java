@@ -12,7 +12,7 @@ public class SellConfirm {
 				sellingPrice = 100;
 				break;
 			case 2:
-				selectItem = "消毒薬";
+				selectItem = "エリクサー";
 				sellingPrice = 250;
 				break;
 			case 3:
@@ -57,7 +57,7 @@ public class SellConfirm {
 							Bag.money += sellingPrice;
 							break;
 						case 2:
-							Bag.shodoku--;
+							Bag.elixir--;
 							Bag.money += sellingPrice;
 							break;
 						case 3:

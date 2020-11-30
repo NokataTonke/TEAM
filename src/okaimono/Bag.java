@@ -3,7 +3,7 @@ package okaimono;
 public class Bag {
 	static int money = 10000;
 	static int yakuso;
-	static int shodoku;
+	static int elixir;
 	static int sake;
 	static int enmaku;
 	static int tabako;
@@ -19,13 +19,15 @@ public class Bag {
 		System.out.println
 				("薬草　：" + Bag.yakuso + "個");
 		System.out.println
-				("消毒薬：" + Bag.shodoku + "個");
-		System.out.println
 				("酒　　：" + Bag.sake + "個");
 		System.out.println
 				("煙幕　：" + Bag.enmaku + "個");
 		System.out.println
 				("タバコ：" + Bag.tabako + "個");
+		System.out.println
+				("ｴﾘｸｻｰ ：" + Bag.elixir + "個");
+		System.out.println();
+		System.out.println("　　　0.戻る");
 		System.out.println
 				("-------------");
 		System.out.println();

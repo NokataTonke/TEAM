@@ -12,7 +12,7 @@ public class BuyConfirm {
 				selectPrice = 100;
 				break;
 			case 2:
-				selectItem = "消毒薬";
+				selectItem = "エリクサー";
 				selectPrice = 250;
 				break;
 			case 3:
@@ -76,7 +76,7 @@ public class BuyConfirm {
 					if(Bag.money >= selectPrice * buyCount) {
 						System.out.println
 								(selectItem + "を" + buyCount + "個手に入れた！");
-						Bag.shodoku += buyCount;
+						Bag.elixir += buyCount;
 						Bag.money -= selectPrice * buyCount;
 					} else {
 						System.out.println

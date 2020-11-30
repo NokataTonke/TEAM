@@ -33,20 +33,30 @@ public class Weapon {
 
 	public void equipWeapon(int equipNow) {
 		switch(equipNow) {
-		case 2:
-			setName("ひのきの棒");
-			setATK(10);
-			break;
-		case 1:
-			break;
-		case 0:
-			break;
-		case 3:
-			break;
-		case 4:
-			break;
-		case 5:
-			break;
+			case 0:
+				setName("ひのきの棒");
+				setATK(10);
+				break;
+			case 1:
+				setName("青銅の剣");
+				setATK(15);
+				break;
+			case 2:
+				setName("鉄の剣");
+				setATK(25);
+				break;
+			case 3:
+				setName("鋼の剣");
+				setATK(35);
+				break;
+			case 4:
+				setName("チタン合金の剣");
+				setATK(45);
+				break;
+			case 5:
+				setName("伝説の剣");
+				setATK(60);
+				break;
 		}
 	}
 

@@ -3,6 +3,13 @@ package okaimono;
 public class Main {
 
 	public static void main(String[] args) {
+		Bag b = new Bag();
+		Weapon w = new Weapon();
+		w.equipWeapon(5);
+		Hero h = new Hero();
+		h.setWeapon(w);
+		Okaimono oi = new Okaimono();
+
 		while(true) {
 			System.out.println
 					("【何をしようか？】");
@@ -16,7 +23,6 @@ public class Main {
 			int i = new java.util.Scanner(System.in).nextInt();
 			switch (i) {
 				case 1:
-					Okaimono oi = new Okaimono();
 					oi.goItemShop();
 					break;
 				case 2:
@@ -27,34 +33,24 @@ public class Main {
 					System.out.println("！！！！！！！！！！！！！");
 					System.out.println();
 
-					Okaimono ow = new Okaimono();
-					ow.goWeaponShop();
+					oi.goWeaponShop();
 					break;
 				case 3:
-					Bag b = new Bag();
 					b.showBag();
-					break;
-				case 4:
+
 					int j;
-
-					Weapon w = new Weapon();
-					w.equipWeapon(2);
-//					w.showWeapon();
-
-
-					Hero h = new Hero();
-					h.setWeapon(w);
-					h.showStatus();
-
-
-
 					j = new java.util.Scanner(System.in).nextInt();
 					if (j == 0) {
 						break;
 					}
+				case 4:
+					h.showStatus();
 
-//					Hero h = new Hero();
-//					h.showStatus();
+					int k;
+					k = new java.util.Scanner(System.in).nextInt();
+					if (k == 0) {
+						break;
+					}
 			}
 		}
 	}
