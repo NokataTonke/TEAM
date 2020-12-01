@@ -37,7 +37,7 @@ public class Menu {
 					break;
 				case 2:
 					int k;
-					b.showBag();
+					b.showBag(h, b);
 
 //					k = new Scanner(System.in).nextInt();
 //					if (k == 0) {

@@ -1,5 +1,7 @@
 package okaimono;
 
+import java.util.Scanner;
+
 public class Bag {
 	static int money = 10000;
 	private int yakuso = 10;
@@ -14,6 +16,10 @@ public class Bag {
 	final int tabakoMAX = 1;
 	final int elixirMAX = 1;
 
+	boolean battle = false;
+	// バトル中か否かを判定するために必要なフィールドをどこが持つか
+	// バトルクラスからHeroクラスかBagに書き込むなどいろいろ
+
 	//Getter,Setter
 	public int getYakuso() {return this.yakuso;}
 	public void setYakuso(int yakuso) {this.yakuso = yakuso;}
@@ -27,30 +33,72 @@ public class Bag {
 	public void setElixir(int elixir) {this.elixir = elixir;}
 
 //	アイテム表示のメソッド
-	public void showBag() {
-		System.out.println
-				("-------------");
-		System.out.println
-				("【何を使用しますか？】");
-		System.out.println();
-		System.out.println
-				("　　　　1.薬草　：" + getYakuso() + "個");
-		System.out.println
-				("　　　　2.煙幕　：" + getEnmaku() + "個");
-		System.out.println
-				("　　　　3.酒　　：" + getSake() + "個");
-		System.out.println
-				("　　　　4.タバコ：" + getTabako() + "個");
-		System.out.println
-				("　　　　5.ｴﾘｸｻｰ ：" + getElixir() + "個");
-		System.out.println();
-		System.out.println
-				("{アイテムNo.を入力してください}(0.戻る)>");
-		System.out.println
-				("-------------");
-		System.out.println();
+	public void showBag(Hero h, Bag b) {
+		int i = 0;
+		do{
+			System.out.println
+					("-------------");
+			System.out.println
+					("【何を使用しますか？】");
+			System.out.println();
+			System.out.println
+					("　　　　1.薬草　：" + getYakuso() + "個");
+			System.out.println
+					("　　　　2.煙幕　：" + getEnmaku() + "個");
+			System.out.println
+					("　　　　3.酒　　：" + getSake() + "個");
+			System.out.println
+					("　　　　4.タバコ：" + getTabako() + "個");
+			System.out.println
+					("　　　　5.ｴﾘｸｻｰ ：" + getElixir() + "個");
+			System.out.println();
+			System.out.println
+					("{アイテムNo.を入力してください}(0.戻る)>");
+			System.out.println
+					("-------------");
+			System.out.println();
 
-
+			i = new Scanner(System.in).nextInt();
+			switch (i) {
+			case 0:
+				break;
+			case 1:
+				if (battle == true) {
+					b.useYakusoInB(h);
+				} else {
+					b.useYakusoOutB(h);
+				}
+				break;
+			case 2:
+				if (battle == true) {
+					b.useEnmakuInB(h);
+				} else {
+					b.useEnmakuOutB();
+				}
+				break;
+			case 3:
+				if (battle == true) {
+					b.useSakeInB();
+				} else {
+					b.useSakeOutB();
+				}
+				break;
+			case 4:
+				if (battle == true) {
+					b.useTabakoInB();
+				} else {
+					b.useTabakoOutB();
+				}
+				break;
+			case 5:
+				if (battle == true) {
+					b.useElixirInB(h);
+				} else {
+					b.useElixirOutB();
+				}
+				break;
+			}
+		}while(i != 0);
 	}
 
 	//アイテム使用のメソッド
@@ -59,6 +107,7 @@ public class Bag {
 			setYakuso(getYakuso() - 1);
 			h.setHP(h.getHP() + 1);
 			System.out.println("HPが10回復した！");
+			System.out.println("HP:" + h.getHP() + "/" + h.getHPMAX());
 		} else {
 			System.out.println("薬草がないため回復できない！");
 		}
@@ -68,6 +117,7 @@ public class Bag {
 			setYakuso(getYakuso() - 1);
 			h.setHP(h.getHP() + 1);
 			System.out.println("HPが10回復した！");
+			System.out.println("HP:" + h.getHP() + "/" + h.getHPMAX());
 		} else {
 			System.out.println("薬草がないため回復できない！");
 		}
