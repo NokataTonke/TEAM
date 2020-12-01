@@ -7,7 +7,7 @@ public class Hero {
 	//決定して勇者が誕生する
 
 	//フィールド
-	private int EXP = 123;
+	private int EXP;
 	private int Level;
 	private int HP;
 	private int MP;
@@ -27,13 +27,6 @@ public class Hero {
 	//誕生コンテナ
 	public Hero() {
 		setLevel();
-		setHP(getHPMAX());
-		setMP(getMPMAX());
-		setATK(getATK());
-	}
-	//宿屋用コンテナ（冗長かも）
-	public Hero(int nowEXP) {
-		setLevel(nowEXP);
 		setHP(getHPMAX());
 		setMP(getMPMAX());
 		setATK(getATK());
@@ -72,6 +65,7 @@ public class Hero {
 		//獲得経験値量によってレベルが上がるかどうか判定してEXPを設定
 		if(gainEXP >= restEXP()) {
 			LevelUP(getLevel() + 1);
+			//2レベル以上上がっても大丈夫なようにする！
 			setEXP(getEXP() + gainEXP);
 		}else {
 			setEXP(getEXP() + gainEXP);
@@ -102,25 +96,6 @@ public class Hero {
 
 		LevelUP(count);
 	}
-	public void setLevel(int nowEXP) {
-		//コンテナ宿屋クラス用レベルSetterオーバーロードメソッド
-		//変数nowEXPで現在のHeroインスタンスから獲得経験値を受け取って引数に代入し、
-		//新しく生まれ変わるイメージ
-		int count = 0;
-		int expSUM = 0;
-
-		while(true) {
-			expSUM += EXPArray[count];
-			count++;
-			if(expSUM > nowEXP) {
-				break;
-			}
-		}
-
-		LevelUP(count);
-	}
-
-
 
 	public int getHP() {
 		return this.HP;
@@ -143,6 +118,7 @@ public class Hero {
 	public void setMP(int MP) {
 		if (MP < 0) {
 			System.out.println("MPが負の値です！");
+			//MP負の値なのに回復できるのはおかしい！
 		}
 		//最大MPを超える加算が行われる場合は最大MPになる処理に分岐
 		if(MP <= getMPMAX()) {
@@ -207,6 +183,9 @@ public class Hero {
 //	}
 //	public void run() {
 		//バトルで使用される逃げるメソッドの中身をここに記述
+//	}
+//	public void aid() {
+//
 //	}
 
 	public void showStatus() {
