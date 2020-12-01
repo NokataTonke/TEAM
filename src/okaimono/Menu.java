@@ -1,6 +1,8 @@
 package okaimono;
 
-public class Main {
+import java.util.Scanner;
+
+public class Menu {
 
 	public static void main(String[] args) {
 		Bag b = new Bag();
@@ -8,53 +10,68 @@ public class Main {
 		w.equipWeapon(5);
 		Hero h = new Hero();
 		h.setWeapon(w);
-		Okaimono oi = new Okaimono(b, w);
+		Shop s = new Shop(b, w);//ショップクラスはMenuで使われない
+		int floor = 1;//ダンジョンインスタンスの.floor
 
 		while(true) {
-			System.out.println
-					("【何をしようか？】");
-			System.out.println
-					("[あなたの所持金] \\" + Bag.money);
+			System.out.println("----------");
 			System.out.println();
 			System.out.println
-					("1.アイテム屋へ 2.武具屋へ 3.バック確認 4.ステータス確認");
+					("【任意のメニューを選択してください】");
 			System.out.println();
+			System.out.println
+					("①.ステータス ②.アイテム ③.装備 ④.図鑑");
+			System.out.println();
+			System.out.println("----------");
 
-			int i = new java.util.Scanner(System.in).nextInt();
+			int i = new Scanner(System.in).nextInt();
 			switch (i) {
 				case 1:
-					oi.goItemShop(b);
-					break;
-				case 2:
-
-					System.out.println();
-					System.out.println("！！！！！！！！！！！！！");
-					System.out.println("!【この処理はまだ未完成】!");
-					System.out.println("！！！！！！！！！！！！！");
-					System.out.println();
-
-					oi.goWeaponShop(w);
-					break;
-				case 3:
-					b.showBag();
+					h.showStatus(b, floor);
 
 					int j;
-					j = new java.util.Scanner(System.in).nextInt();
+					j = new Scanner(System.in).nextInt();
 					if (j == 0) {
 						break;
-					} else {
-						continue;
 					}
-				case 4:
-					h.showStatus();
-
+					break;
+				case 2:
 					int k;
-					k = new java.util.Scanner(System.in).nextInt();
-					if (k == 0) {
-						break;
-					}
+					b.showBag();
+
+//					k = new Scanner(System.in).nextInt();
+//					if (k == 0) {
+//
+//					}
+
+					break;
+				case 3:
+					w.showWeapon();
+					break;
+				case 4:
+					System.out.println();
+					System.out.println("！！！！！！！！！！！！！");
+					System.out.println("!【図鑑処理の画面表示】!");
+					System.out.println("！！！！！！！！！！！！！");
+					System.out.println();
+					break;
+				case 0:
 			}
 		}
 	}
+
+//			case 1:
+//				s.goItemShop(b);
+//				break;
+//			case 2:
+//
+//				System.out.println();
+//				System.out.println("！！！！！！！！！！！！！");
+//				System.out.println("!【この処理はまだ未完成】!");
+//				System.out.println("！！！！！！！！！！！！！");
+//				System.out.println();
+//
+//				s.goWeaponShop(w);
+//				break;
 }
 

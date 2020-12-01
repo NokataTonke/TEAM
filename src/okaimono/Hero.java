@@ -188,7 +188,7 @@ public class Hero {
 //
 //	}
 
-	public void showStatus() {
+	public void showStatus(Bag b, int d) {
 		System.out.println("----------");
 		System.out.println();
 
@@ -220,7 +220,7 @@ public class Hero {
 				" = (" + getATK() + " + " + getWeapon().getATK() + ")"
 		);
 		System.out.println(
-				"　　　　　最深到達ダンジョン階数:" + "ほにゃ"
+				"　　　　　最深到達ダンジョン階数:" + "d.floor"
 		);
 //		ほにゃの代わりにバトルクラスから階数フィールドの値を取得して表記する
 

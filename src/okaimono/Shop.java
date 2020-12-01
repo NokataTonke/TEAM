@@ -1,10 +1,10 @@
 package okaimono;
 
-public class Okaimono {
+public class Shop {
 	Bag b;
 	Weapon w;
 
-	public Okaimono(Bag b, Weapon w) {
+	public Shop(Bag b, Weapon w) {
 		this.b = b;
 		this.w = w;
 	}
