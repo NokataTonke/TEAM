@@ -53,22 +53,23 @@ public class Hero {
 		//あといくつのEXPでレベルアップするか計算
 		int nextEXP = 0;
 		int restEXP;
-
 		for (int j=0; j<getLevel(); j++) {
 			nextEXP += EXPArray[j];
 		}
-
 		restEXP = nextEXP - getEXP();
 		return restEXP;
 	}
 	public void checkLevelUP(int gainEXP) {
 		//獲得経験値量によってレベルが上がるかどうか判定してEXPを設定
 		if(gainEXP >= restEXP()) {
-			LevelUP(getLevel() + 1);
-			//2レベル以上上がっても大丈夫なようにする！
+			//2レベル以上上がっても大丈夫！
 			setEXP(getEXP() + gainEXP);
+			setLevel(getEXP());
+			System.out.println("レベルがあがった！");
+			System.out.println("レベルが" + getLevel() + "になった！");
 		}else {
 			setEXP(getEXP() + gainEXP);
+			setLevel(getEXP());//これはなくても大丈夫だけど保険として
 		}
 	}
 	public int getLevel() {
@@ -82,7 +83,7 @@ public class Hero {
 		}
 	}
 	public void setLevel() {
-		//コンテナレベルSetterメソッド
+		//レベルSetterメソッド
 		int count = 0;
 		int expSUM = 0;
 
@@ -96,10 +97,22 @@ public class Hero {
 
 		LevelUP(count);
 	}
+	public void setLevel(int nowEXP) {
+		//レベルSetterメソッドの引数とるver
+		int count = 0;
+		int expSUM = 0;
 
-	public int getHP() {
-		return this.HP;
+		while(true) {
+			expSUM += EXPArray[count];
+			count++;
+			if(expSUM > nowEXP) {
+				break;
+			}
+		}
+		LevelUP(count);
 	}
+
+	public int getHP() {return this.HP;}
 	public void setHP(int HP) {
 //		HPが0以下になるときはバトルクラスで判定するはずなので記述は見送る
 //		if (HP < 0) {
@@ -112,9 +125,7 @@ public class Hero {
 			this.HP = getHPMAX();
 		}
 	}
-	public int getMP() {
-		return this.MP;
-	}
+	public int getMP() {return this.MP;}
 	public void setMP(int MP) {
 		if (MP < 0) {
 			System.out.println("MPが負の値です！");
@@ -159,22 +170,11 @@ public class Hero {
 		}
 		return baseATK;
 	}
-	public String getName() {
-		return this.name;
-	}
-	public void setName(String name) {
-//		ここで勇者名の文字数制限や縛りを記入する
-		this.name = name;
-	}
-	public Weapon getWeapon() {
-		return this.w;
-	}
-	public void setWeapon(Weapon w) {
-		this.w = w;
-	}
-	public void setATK(int ATK) {
-		this.ATK = ATK;
-	}
+	public String getName() {return this.name;}
+	public void setName(String name) {this.name = name;}//ここで勇者名の文字数制限や縛りを記入する
+	public Weapon getWeapon() {return this.w;}
+	public void setWeapon(Weapon w) {this.w = w;}
+	public void setATK(int ATK) {this.ATK = ATK;}
 
 
 

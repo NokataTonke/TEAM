@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class SelectItem {
 	boolean battle = false;
-	// バトル中か否かを判定するために必要なフィールド
+	// バトル中か否かを判定するために必要なフィールドをどこが持つか
 	// バトルクラスからHeroクラスかBagに書き込むなどいろいろ
 
 	public void selectItem(Bag b, Hero h) {

@@ -2,11 +2,11 @@ package okaimono;
 
 public class Bag {
 	static int money = 10000;
-	private int yakuso;
-	private int enmaku;
-	private int sake;
-	private int tabako;
-	private int elixir;
+	private int yakuso = 10;
+	private int enmaku = 3;
+	private int sake = 5;
+	private int tabako = 1;
+	private int elixir = 1;
 
 	final int yakusoMAX = 10;
 	final int enmakuMAX = 3;
@@ -146,7 +146,8 @@ public class Bag {
 
 	public void checkMAX(int i, int MAX) {
 //		何かイベント上でアイテムが増えるときは必ず
-//		Setterの前に受け渡すアイテム数を引数i、
+//		Setterの前に
+//		（現在の所持数 + 受け渡すアイテム数)を引数i、
 //		該当するアイテムの最大所持数をMAXとして
 //		このメソッドを実行する
 		if (i > MAX) {
