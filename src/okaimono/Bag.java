@@ -16,7 +16,20 @@ public class Bag {
 	final int tabakoMAX = 1;
 	final int elixirMAX = 1;
 
-	boolean battle = false;
+	String infoArray[] = {
+	"使うとHPを10回復\n" +
+	"用法容量を守ろう",
+	"尋常ではない量の煙を起こす\n" +
+	"戦闘から退避する際に便利",
+	"気つけや嗜好品として使用される\n" +
+	"使うとテンションアップ",
+	"ニコチンとタールを摂取できる\n" +
+	"喫煙者の必需品",
+	"強力な秘薬\n" +
+	"使いどころが肝要"
+	};
+
+//	boolean h.inBattle = false;
 	// バトル中か否かを判定するために必要なフィールドをどこが持つか
 	// バトルクラスからHeroクラスかBagに書き込むなどいろいろ
 
@@ -63,35 +76,35 @@ public class Bag {
 			case 0:
 				break;
 			case 1:
-				if (battle == true) {
+				if (h.inBattle == true) {
 					b.useYakusoInB(h);
 				} else {
 					b.useYakusoOutB(h);
 				}
 				break;
 			case 2:
-				if (battle == true) {
+				if (h.inBattle == true) {
 					b.useEnmakuInB(h);
 				} else {
 					b.useEnmakuOutB();
 				}
 				break;
 			case 3:
-				if (battle == true) {
+				if (h.inBattle == true) {
 					b.useSakeInB();
 				} else {
 					b.useSakeOutB();
 				}
 				break;
 			case 4:
-				if (battle == true) {
+				if (h.inBattle == true) {
 					b.useTabakoInB();
 				} else {
 					b.useTabakoOutB();
 				}
 				break;
 			case 5:
-				if (battle == true) {
+				if (h.inBattle == true) {
 					b.useElixirInB(h);
 				} else {
 					b.useElixirOutB();
@@ -151,7 +164,7 @@ public class Bag {
 	public void useSakeOutB() {
 		if (getSake() > 0) {
 			setSake(getSake() - 1);
-			System.out.println("昼から街中で酒を飲んだ！");
+			System.out.println("昼から酒を飲んだ！");
 			System.out.println("陽気な気分になった！");
 		} else {
 			System.out.println("酒を持っていない");

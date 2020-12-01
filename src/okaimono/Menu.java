@@ -7,13 +7,14 @@ public class Menu {
 	public static void main(String[] args) {
 		Bag b = new Bag();
 		Weapon w = new Weapon();
-		w.equipWeapon(5);
 		Hero h = new Hero();
-		h.setWeapon(w);
-		Shop s = new Shop(b, w);//ショップクラスはMenuで使われない
+
+//		Shop s = new Shop(b, w);//ショップクラスはMenuで使われない
 		int floor = 1;//ダンジョンインスタンスの.floor
 
 		while(true) {
+			w.equipWeapon(w.equipNow);
+			h.setWeapon(w);
 			System.out.println("----------");
 			System.out.println();
 			System.out.println
@@ -27,7 +28,7 @@ public class Menu {
 			int i = new Scanner(System.in).nextInt();
 			switch (i) {
 				case 1:
-					h.showStatus(b, floor);
+					h.showStatus(b, w, floor);
 
 					int j;
 					j = new Scanner(System.in).nextInt();

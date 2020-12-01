@@ -23,6 +23,7 @@ public class Hero {
 		20, 20, 20, 20, 20, 20, 20,
 		30, 30, 30, 30,
 	};
+	boolean inBattle;
 
 	//誕生コンテナ
 	public Hero() {
@@ -188,7 +189,7 @@ public class Hero {
 //
 //	}
 
-	public void showStatus(Bag b, int d) {
+	public void showStatus(Bag b, Weapon w, int d) {
 		System.out.println("----------");
 		System.out.println();
 
@@ -212,7 +213,7 @@ public class Hero {
 		);
 		System.out.println(
 				"　　　　　装備:" +
-						getWeapon().getName() + "(ATK:" + getWeapon().getATK() + ")"
+						w.getName() + "(ATK:" + w.getATK() + ")"
 		);
 		System.out.println(
 				"　　　　　ATK:" +
