@@ -1,5 +1,7 @@
 package okaimono;
 
+import java.util.Scanner;
+
 public class Hero {
 
 	//インスタンス生成の前に下記private int EXPの初期値を確認する
@@ -172,7 +174,13 @@ public class Hero {
 		return baseATK;
 	}
 	public String getName() {return this.name;}
-	public void setName(String name) {this.name = name;}//ここで勇者名の文字数制限や縛りを記入する
+	public void setName(String name) {
+			if (name.length() < 7) {
+				this.name = name;
+			} else {
+				System.out.println("文字数は6文字以内です！");
+			}
+		}//ここで勇者名の文字数制限や縛りを記入する
 	public Weapon getWeapon() {return this.w;}
 	public void setWeapon(Weapon w) {this.w = w;}
 	public void setATK(int ATK) {this.ATK = ATK;}
@@ -205,29 +213,32 @@ public class Hero {
 
 		System.out.println();
 		System.out.println(
-				"　　　　　HP:" + getHP() + "/" + getHPMAX()
+				"　　　HP:" + getHP() + "/" + getHPMAX()
 					   + " MP:" + getMP() + "/" + getMPMAX()
 		);
 		System.out.println(
-				"　　　　　EXP:" + getEXP() + " 所持金:" + Bag.money
+				"　　　EXP:" + getEXP() + " 所持金:" + Bag.money
 		);
 		System.out.println(
-				"　　　　　装備:" +
+				"　　　装備:" +
 						w.getName() + "(ATK:" + w.getATK() + ")"
 		);
 		System.out.println(
-				"　　　　　ATK:" +
+				"　　　ATK:" +
 				(getATK() + getWeapon().getATK()) +
 				" = (" + getATK() + " + " + getWeapon().getATK() + ")"
 		);
 		System.out.println(
-				"　　　　　最深到達ダンジョン階数:" + "d.floor"
+				"　　　最深到達ダンジョン階数:" + "d.floor"
 		);
 //		ほにゃの代わりにバトルクラスから階数フィールドの値を取得して表記する
 
 		System.out.println();
-		System.out.println("　　　　　　　　0.戻る");
+		System.out.println("　　　　　press Enter to back");
 		System.out.println("----------");
+
+		String j;
+		j = new Scanner(System.in).nextLine();
 	}
 
 }

@@ -3,12 +3,7 @@ package okaimono;
 import java.util.Scanner;
 
 public class Bag {
-	static int money = 10000;
-	private int yakuso = 10;
-	private int enmaku = 3;
-	private int sake = 5;
-	private int tabako = 1;
-	private int elixir = 1;
+	static int money = 1000;
 
 	final int yakusoMAX = 10;
 	final int enmakuMAX = 3;
@@ -16,17 +11,27 @@ public class Bag {
 	final int tabakoMAX = 1;
 	final int elixirMAX = 1;
 
+	private int stockArray[] = {2, 3, 5, 1, 1};
+
 	String infoArray[] = {
 	"使うとHPを10回復\n" +
-	"用法容量を守ろう",
+	"　　　　用法容量を守ろう",
 	"尋常ではない量の煙を起こす\n" +
-	"戦闘から退避する際に便利",
+	"　　　　戦闘から退避する際に便利",
 	"気つけや嗜好品として使用される\n" +
-	"使うとテンションアップ",
+	"　　　　使うとテンションアップ",
 	"ニコチンとタールを摂取できる\n" +
-	"喫煙者の必需品",
+	"　　　　喫煙者の必需品",
 	"強力な秘薬\n" +
-	"使いどころが肝要"
+	"　　　　使いどころが肝要"
+	};
+
+	String nameArray[] = {
+		"薬草",
+		"煙幕",
+		"酒",
+		"タバコ",
+		"ｴﾘｸｻｰ"
 	};
 
 //	boolean h.inBattle = false;
@@ -34,16 +39,20 @@ public class Bag {
 	// バトルクラスからHeroクラスかBagに書き込むなどいろいろ
 
 	//Getter,Setter
-	public int getYakuso() {return this.yakuso;}
-	public void setYakuso(int yakuso) {this.yakuso = yakuso;}
-	public int getEnmaku() {return this.enmaku;}
-	public void setEnmaku(int enmaku) {this.enmaku = enmaku;}
-	public int getSake() {return this.sake;}
-	public void setSake(int sake) {this.sake = sake;}
-	public int getTabako() {return this.tabako;}
-	public void setTabako(int tabako) {this.tabako = tabako;}
-	public int getElixir() {return this.elixir;}
-	public void setElixir(int elixir) {this.elixir = elixir;}
+	public int getYakuso() {return getCount(0);}
+	public void setYakuso(int yakuso) {checkMAX(yakuso, yakusoMAX);this.stockArray[0] = yakuso;}
+	public int getEnmaku() {return getCount(1);}
+	public void setEnmaku(int enmaku) {checkMAX(enmaku, enmakuMAX);this.stockArray[1] = enmaku;}
+	public int getSake() {return getCount(2);}
+	public void setSake(int sake) {checkMAX(sake, sakeMAX);this.stockArray[2] = sake;}
+	public int getTabako() {return getCount(3);}
+	public void setTabako(int tabako) {checkMAX(tabako, tabakoMAX);this.stockArray[3] = tabako;}
+	public int getElixir() {return getCount(4);}
+	public void setElixir(int elixir) {checkMAX(elixir, elixirMAX);this.stockArray[4] = elixir;}
+
+	public int getCount(int n) {
+		return this.stockArray[n];
+	}
 
 //	アイテム表示のメソッド
 	public void showBag(Hero h, Bag b) {
@@ -72,42 +81,81 @@ public class Bag {
 			System.out.println();
 
 			i = new Scanner(System.in).nextInt();
+
+			int k = 0;
+			SelectItem si = new SelectItem();
+
 			switch (i) {
 			case 0:
 				break;
 			case 1:
-				if (h.inBattle == true) {
-					b.useYakusoInB(h);
-				} else {
-					b.useYakusoOutB(h);
+				si.selectItem(b, h, i);
+
+				k = new Scanner(System.in).nextInt();
+				if (k == 1) {
+					if (h.inBattle == true) {
+						b.useYakusoInB(h);
+					} else {
+						b.useYakusoOutB(h);
+					}
+				}else if (k == 2) {
+					//何もしない
 				}
 				break;
 			case 2:
-				if (h.inBattle == true) {
-					b.useEnmakuInB(h);
-				} else {
-					b.useEnmakuOutB();
+				si.selectItem(b, h, i);
+
+				k = new Scanner(System.in).nextInt();
+				if (k == 1) {
+					if (h.inBattle == true) {
+						b.useEnmakuInB(h);
+					} else {
+						b.useEnmakuOutB();
+					}
+				}else if (k == 2) {
+					//何もしない
 				}
 				break;
 			case 3:
-				if (h.inBattle == true) {
-					b.useSakeInB();
-				} else {
-					b.useSakeOutB();
+				si.selectItem(b, h, i);
+
+				k = new Scanner(System.in).nextInt();
+				if (k == 1) {
+					if (h.inBattle == true) {
+						b.useSakeInB();
+					} else {
+						b.useSakeOutB();
+					}
+				}else if (k == 2) {
+					//何もしない
 				}
 				break;
 			case 4:
-				if (h.inBattle == true) {
-					b.useTabakoInB();
-				} else {
-					b.useTabakoOutB();
+				si.selectItem(b, h, i);
+
+				k = new Scanner(System.in).nextInt();
+				if (k == 1) {
+					if (h.inBattle == true) {
+						b.useTabakoInB();
+					} else {
+						b.useTabakoOutB();
+					}
+				}else if (k == 2) {
+					//何もしない
 				}
 				break;
 			case 5:
-				if (h.inBattle == true) {
-					b.useElixirInB(h);
-				} else {
-					b.useElixirOutB();
+				si.selectItem(b, h, i);
+
+				k = new Scanner(System.in).nextInt();
+				if (k == 1) {
+					if (h.inBattle == true) {
+						b.useElixirInB(h);
+					} else {
+						b.useElixirOutB();
+					}
+				}else if (k == 2) {
+					//何もしない
 				}
 				break;
 			}

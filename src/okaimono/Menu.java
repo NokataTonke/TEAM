@@ -3,7 +3,6 @@ package okaimono;
 import java.util.Scanner;
 
 public class Menu {
-
 	public static void main(String[] args) {
 		Bag b = new Bag();
 		Weapon w = new Weapon();
@@ -13,8 +12,11 @@ public class Menu {
 		int floor = 1;//ダンジョンインスタンスの.floor
 
 		while(true) {
+			//Weaponの名前と攻撃力を再設定
 			w.equipWeapon(w.equipNow);
+			//HeroのもつWeaponを再設定
 			h.setWeapon(w);
+
 			System.out.println("----------");
 			System.out.println();
 			System.out.println
@@ -29,25 +31,12 @@ public class Menu {
 			switch (i) {
 				case 1:
 					h.showStatus(b, w, floor);
-
-					int j;
-					j = new Scanner(System.in).nextInt();
-					if (j == 0) {
-						break;
-					}
 					break;
 				case 2:
-					int k;
 					b.showBag(h, b);
-
-//					k = new Scanner(System.in).nextInt();
-//					if (k == 0) {
-//
-//					}
-
 					break;
 				case 3:
-					w.showWeapon();
+					w.showWeapon(h);
 					break;
 				case 4:
 					System.out.println();

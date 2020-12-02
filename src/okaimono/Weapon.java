@@ -11,11 +11,12 @@ public class Weapon {
 	int equipATK;
 	//装備中の装備攻撃力
 	boolean haveArray[] = {true, false, true, false, false, true, true};
-	boolean equipArray[] = {true, false, false, false, false, false, true};
+	boolean equipArray[] = {true, false, false, false, false, false, false};
 	String nameArray[] =
 		{"ひのきの棒", "青銅の剣", "鉄の剣",
 		"鋼の剣", "チタン合金の剣", "伝説の剣", "素手"};
 	int atkArray[] = {10, 15, 25, 35, 45, 60, 0};
+
 	//説明書き
 	String infoArray[] = {
 			"　固い檜でできた棒\n" +
@@ -30,9 +31,8 @@ public class Weapon {
 			"　まるで将棋だな",
 			"　言うまでもないレジェンド\n" +
 			"　但し使い手を選ぶ",
-			"生まれたままの姿"
+			"　生まれたままの姿"
 	};
-
 
 	//ゲッター、セッター
 	public String getName() {
@@ -49,7 +49,7 @@ public class Weapon {
 	}
 
 	//メソッド
-	public void showWeapon() {
+	public void showWeapon(Hero h) {
 		//武器の一覧表示
 		int k;
 		do {
@@ -80,35 +80,73 @@ public class Weapon {
 			case 0:
 				break;
 			default:
-				//このままだと持ってなくても数字を入れれば装備ができてしまう
-				System.out.println("-----------");
+				//持ってなくても数字を入れれば装備ができてしまう
+				System.out.println
+					("-----------");
 				if(equipArray[k-1]) {
-					System.out.println("【装備を外しますか？】");
+					System.out.println
+						("【装備を外しますか？】");
+					System.out.println();
 				}else {
-					System.out.println("【装備しますか？】");
+					System.out.println
+						("【装備しますか？】");
+					System.out.println();
 				}
 				if(equipArray[k-1]) {
-					System.out.print("　E　");
+					System.out.print
+						("　E　");
 				} else {
-					System.out.print("　 　");
+					System.out.print
+						("　 　");
 				}
-				System.out.println(nameArray[k-1]);
+				System.out.println
+					(nameArray[k-1]);
+				System.out.println
+					("攻撃力　▲　" + atkArray[k-1]);
+				System.out.print("　　");
+				System.out.println
+					((h.getATK() + h.getWeapon().getATK()) + " → "+ (h.getATK() + atkArray[k-1]));
 				System.out.println();
-				System.out.println(infoArray[k-1]);
+				System.out.println
+					(infoArray[k-1]);
 				System.out.println();
-				System.out.println("　　1,Yes　2,No");
-				System.out.println("-----------");
-				
+				System.out.println
+					("　　1,Yes　2,No");
+				System.out.println
+					("-----------");
+
 				int l;
 				l = new Scanner(System.in).nextInt();
 				if(l == 1) {
-					if(equipArray[k-1]) {
-						equipArray[k-1] = false;
+					if(equipArray[k-1])
+						//選択した武器が装備済みの時
+						{
+//						equipArray[k-1] = false;
+						unarmWeapon(k-1);
+						if((k-1) == 6) {
+							//素手の時
+//							equipArray[k-1] = true;
+							armWeapon(k-1);
+						}
 						equipNow = 6;
-						System.out.println("装備を外して素手になった");
-					}else {
-						equipArray[equipNow] = false;
-						equipArray[k-1] = true;
+						if((k-1) == 6) {
+							//素手の時
+							System.out.println("既に素手やんけ！");
+							System.out.println("素手は外せない");
+						} else {
+							//何かしらの武器を装備しているとき
+							System.out.println("装備を外して素手になった");
+						}
+					}else
+						//選択した武器が装備されていないとき
+						{
+						if(equipNow != 7) {
+							//何かしらの武器を装備しているとき
+//							equipArray[equipNow] = false;
+							unarmWeapon(equipNow);
+						}
+//						equipArray[k-1] = true;
+						armWeapon(k-1);
 						equipNow = k-1;
 						System.out.println(nameArray[k-1] +"を装備した！");
 					}
@@ -126,12 +164,15 @@ public class Weapon {
 		setATK(atkArray[equipNow]);
 	}
 
+	//ショップ用メソッド
 	public void gainWeapon(int weaponNumber) {
 		haveArray[weaponNumber] = true;
 	}
 	public void loseWeapon(int weaponNumber) {
 		haveArray[weaponNumber] = false;
 	}
+
+	//装備装着、装備解除メソッド
 	public void armWeapon(int number) {
 		equipArray[number] = true;
 	}
