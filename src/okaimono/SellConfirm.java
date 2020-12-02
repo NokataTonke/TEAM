@@ -1,10 +1,10 @@
 package okaimono;
 
 public class SellConfirm {
-	public void sellConfirm(int i, int hbItem) {
+	public void sellConfirm(Bag b, int i, int hbItem) {
 		String selectItem = null;
 		int sellingPrice = 0;
-		int nowMoney = Bag.money;
+		int nowMoney = b.money;
 
 		switch(i) {
 			case 1:
@@ -36,7 +36,7 @@ public class SellConfirm {
 		System.out.println
 				("[買取金額] \\" + sellingPrice);
 		System.out.println
-				("[あなたの所持金] \\" + Bag.money + "　→　\\" + (nowMoney + sellingPrice));
+				("[あなたの所持金] \\" + b.money + "　→　\\" + (nowMoney + sellingPrice));
 		System.out.println
 				("現在の" + selectItem + "所持数：" + hbItem + "個");
 		System.out.println
@@ -53,28 +53,28 @@ public class SellConfirm {
 						(selectItem + "を1つ売った！");
 					switch(i) {
 						case 1:
-							Bag.yakuso--;
-							Bag.money += sellingPrice;
+							b.setYakuso(b.getYakuso()-1);
+							b.money += sellingPrice;
 							break;
 						case 2:
-							Bag.elixir--;
-							Bag.money += sellingPrice;
+							b.setElixir(b.getElixir()-1);
+							b.money += sellingPrice;
 							break;
 						case 3:
-							Bag.sake--;
-							Bag.money += sellingPrice;
+							b.setSake(b.getSake()-1);
+							b.money += sellingPrice;
 							break;
 						case 4:
-							Bag.enmaku--;
-							Bag.money += sellingPrice;
+							b.setEnmaku(b.getEnmaku()-1);
+							b.money += sellingPrice;
 							break;
 						case 5:
-							Bag.tabako--;
-							Bag.money += sellingPrice;
+							b.setTabako(b.getTabako()-1);
+							b.money += sellingPrice;
 							break;
 					}
 					System.out.println
-							("[あなたの所持金] \\" + Bag.money);
+							("[あなたの所持金] \\" + b.money);
 					System.out.println();
 
 				} else { // 選択した売りたいアイテムが1つもない（0以下）の場合

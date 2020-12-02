@@ -10,8 +10,10 @@ public class Weapon {
 	//装備中の装備名
 	int equipATK;
 	//装備中の装備攻撃力
-	boolean haveArray[] = {true, false, true, false, false, true, true};
-	boolean equipArray[] = {true, false, false, false, false, false, false};
+	boolean haveArray[] =
+		{true, false, true, false, false, true, true};
+	boolean equipArray[] =
+		{true, false, false, false, false, false, false};
 	String nameArray[] =
 		{"ひのきの棒", "青銅の剣", "鉄の剣",
 		"鋼の剣", "チタン合金の剣", "伝説の剣", "素手"};
@@ -159,7 +161,7 @@ public class Weapon {
 	}
 
 	public void equipWeapon(int equipNow) {
-		//武器装備時に名前と攻撃力を設定
+		//Heroインスタンスが武器装備時に名前と攻撃力を設定
 		setName(nameArray[equipNow]);
 		setATK(atkArray[equipNow]);
 	}

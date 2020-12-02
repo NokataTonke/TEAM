@@ -3,7 +3,6 @@ package okaimono;
 import java.util.Scanner;
 
 public class Hero {
-
 	//インスタンス生成の前に下記private int EXPの初期値を確認する
 	//コンテナがその初期値に則りLevel,最大HP(=HP),最大MP(=MP),ATKを
 	//決定して勇者が誕生する

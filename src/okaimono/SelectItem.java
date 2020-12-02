@@ -9,7 +9,7 @@ public class SelectItem {
 		System.out.println();
 		System.out.println
 			("　　　　" + b.nameArray[j-1] + "("
-		+ b.getCount(j-1) + "有)");
+			+ b.getCount(j-1) + "有)");
 		System.out.println
 			("　　　　" + b.infoArray[j-1]);
 		System.out.println();
