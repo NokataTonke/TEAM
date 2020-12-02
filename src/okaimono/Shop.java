@@ -52,4 +52,35 @@ public class Shop {
 		System.out.println();
 
 	}
+//	public class EnterTest {
+//
+//		public static void main(String[] args)throws InterruptedException {
+//			int count = 1;
+//
+//			do {
+//				showText("Enterをおしてね", 30);
+//				String e;
+//				e = new Scanner(System.in).nextLine();
+//				String succesText = "成功！" + count + "回目";
+//				showText(succesText, 30);
+//				System.out.println();
+//				System.out.println("");
+//				count++;
+//			} while(count < 11);
+//
+//		}
+//
+//		private static void showText( String text, int dispSpeedMsec ) throws InterruptedException {
+//	        String[] textArray = text.split( "" );
+//
+//	        for( int i = 0; i < textArray.length; i++ ){
+//	            // 文字を表示
+//	            System.out.print( textArray[ i ] );
+//
+//	            // dispSpeedMsecの時間だけ処理を停止
+//	            Thread.sleep( dispSpeedMsec );
+//	        }
+//
+//	    }
+//	}
 }
