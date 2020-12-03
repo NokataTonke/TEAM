@@ -11,12 +11,12 @@ public class ItemShopBuy {
 				("[あなたの所持金] \\" + b.money);
 		System.out.println();
 		System.out.println(
-				"1.薬草(\\100)" + "(" + b.getYakuso() + "有)　" +
-				"2.エリクサー(\\250)" + "(" + b.getElixir() + "有)　" +
-				"3.酒(\\300)" +  "(" + b.getSake() + "有)　");
+				"1.薬草(\\100)" + "(" + b.getYakuso() + "/" + b.yakusoMAX + "有)　" +
+				"2.エリクサー(\\250)" + "(" + b.getElixir() + "/" + b.elixirMAX + "有)　" +
+				"3.酒(\\300)" +  "(" + b.getSake() + "/" + b.sakeMAX + "有)　");
 		System.out.println(
-				"4.煙幕(\\500)" + "(" + b.getEnmaku() + "有)　" +
-				"5.タバコ(\\3000)" + "(" + b.getTabako() + "有)　");
+				"4.煙幕(\\500)" + "(" + b.getEnmaku() + "/" + b.enmakuMAX + "有)　" +
+				"5.タバコ(\\3000)" + "(" + b.getTabako() + "/" + b.tabakoMAX + "有)　");
 		System.out.println();
 
 		int i = new java.util.Scanner(System.in).nextInt();
@@ -50,13 +50,12 @@ public class ItemShopBuy {
 					("[あなたの所持金] \\" + b.money);
 			System.out.println();
 			System.out.println(
-					"1.薬草(\\100)" + "(" + b.getYakuso() + "有)　" +
-					"2.エリクサー(\\250)" + "(" + b.getElixir() + "有)　" +
-					"3.酒(\\300)" +  "(" + b.getSake() + "有)　");
+					"1.薬草(\\100)" + "(" + b.getYakuso() + "/" + b.yakusoMAX + "有)　" +
+					"2.エリクサー(\\250)" + "(" + b.getElixir() + "/" + b.elixirMAX + "有)　" +
+					"3.酒(\\300)" +  "(" + b.getSake() + "/" + b.sakeMAX + "有)　");
 			System.out.println(
-					"4.煙幕(\\500)" + "(" + b.getEnmaku() + "有)　" +
-					"5.タバコ(\\3000)" + "(" + b.getTabako() + "有)　" +
-					"6. もう大丈夫");
+					"4.煙幕(\\500)" + "(" + b.getEnmaku() + "/" + b.enmakuMAX + "有)　" +
+					"5.タバコ(\\3000)" + "(" + b.getTabako() + "/" + b.tabakoMAX + "有)　");
 			System.out.println();
 
 			k = new java.util.Scanner(System.in).nextInt();

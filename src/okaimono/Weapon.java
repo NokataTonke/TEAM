@@ -83,7 +83,7 @@ public class Weapon {
 				break;
 			default:
 				if(haveArray[k-1]) {
-					//持ってる装備の数字を入力したとき
+				//持ってる装備の数字を入力したとき
 					System.out.println
 						("-----------");
 					if(equipArray[k-1]) {
@@ -127,24 +127,24 @@ public class Weapon {
 	//						equipArray[k-1] = false;
 							unarmWeapon(k-1);
 							if((k-1) == 6) {
-								//素手の時
+							//素手の時
 	//							equipArray[k-1] = true;
 								armWeapon(k-1);
 							}
 							equipNow = 6;
 							if((k-1) == 6) {
-								//素手の時
+							//素手の時
 								System.out.println("既に素手やんけ！");
 								System.out.println("素手は外せない");
 							} else {
-								//何かしらの武器を装備しているとき
+							//何かしらの武器を装備しているとき
 								System.out.println("装備を外して素手になった");
 							}
 						}else
-							//選択した武器が装備されていないとき
+						//選択した武器が装備されていないとき
 							{
 							if(equipNow != 7) {
-								//何かしらの武器を装備しているとき
+							//何かしらの武器を装備しているとき
 	//							equipArray[equipNow] = false;
 								unarmWeapon(equipNow);
 							}
@@ -154,10 +154,10 @@ public class Weapon {
 							System.out.println(nameArray[k-1] +"を装備した！");
 						}
 					}else if (l == 2) {
-						//2.Noを押したときは特に処理しない。
+					//2.Noを押したときは特に処理しない。
 					}
 				} else {
-					//装備を持ってない番号を入力したとき
+				//装備を持ってない番号を入力したとき
 					System.out.println("その装備はもっていない！");
 				}
 			}

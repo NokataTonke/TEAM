@@ -1,13 +1,8 @@
 package okaimono;
 
 public class Shop {
-	Bag b;
-	Weapon w;
+	//Shopのアイテムメニューの順番がめちゃくちゃだからそこは直す
 
-	public Shop(Bag b, Weapon w) {
-		this.b = b;
-		this.w = w;
-	}
 	public void goItemShop(Bag b) {
 		System.out.println("-------------");
 		System.out.println

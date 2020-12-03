@@ -8,7 +8,7 @@ public class Menu {
 		Weapon w = new Weapon();
 		Hero h = new Hero();
 
-//		Shop s = new Shop(b, w);//ショップクラスはMenuで使われない
+		Shop s = new Shop();//ショップクラスはMenuで使われない
 		int floor = 1;//ダンジョンインスタンスの.floor
 
 		while(true) {
@@ -45,7 +45,9 @@ public class Menu {
 					System.out.println("！！！！！！！！！！！！！");
 					System.out.println();
 					break;
-				case 0:
+				case 0://Shopテスト用選択肢（臨時）
+					s.goItemShop(b);
+					break;
 			}
 		}
 }

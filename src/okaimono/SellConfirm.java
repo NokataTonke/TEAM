@@ -5,6 +5,7 @@ public class SellConfirm {
 		String selectItem = null;
 		int sellingPrice = 0;
 		int nowMoney = b.money;
+//		最大所持数でも買うことができるのがおかしい
 
 		switch(i) {
 			case 1:

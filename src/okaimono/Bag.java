@@ -10,6 +10,7 @@ public class Bag {
 	final int sakeMAX = 5;
 	final int tabakoMAX = 1;
 	final int elixirMAX = 1;
+//	最大所持数を教えてくれた方が親切
 
 	private int stockArray[] = {8, 3, 5, 1, 1};
 
@@ -64,15 +65,15 @@ public class Bag {
 					("【何を使用しますか？】");
 			System.out.println();
 			System.out.println
-					("　　　　1.薬草　：" + getYakuso() + "個");
+					("　　　　1.薬草　：" + getYakuso() + "/" + yakusoMAX + "個");
 			System.out.println
-					("　　　　2.煙幕　：" + getEnmaku() + "個");
+					("　　　　2.煙幕　：" + getEnmaku() + "/" + enmakuMAX + "個");
 			System.out.println
-					("　　　　3.酒　　：" + getSake() + "個");
+					("　　　　3.酒　　：" + getSake() + "/" + sakeMAX + "個");
 			System.out.println
-					("　　　　4.タバコ：" + getTabako() + "個");
+					("　　　　4.タバコ：" + getTabako() + "/" + tabakoMAX + "個");
 			System.out.println
-					("　　　　5.ｴﾘｸｻｰ ：" + getElixir() + "個");
+					("　　　　5.ｴﾘｸｻｰ ：" + getElixir() + "/" + elixirMAX + "個");
 			System.out.println();
 			System.out.println
 					("{アイテムNo.を入力してください}(0.戻る)>");
@@ -165,24 +166,30 @@ public class Bag {
 	//アイテム使用のメソッド
 	public void useYakusoInB(Hero h) {
 		if (getYakuso() > 0) {
+		//薬草があるとき
 			if(h.getHP() < h.getHPMAX()) {
+			//ダメージを受けているとき
 				int kizu = h.getHPMAX()-h.getHP();
 				if(kizu < 10) {
+				//ダメージが一桁のとき
 					setYakuso(getYakuso()-1);
 					h.setHP(h.getHP() + kizu);
 					System.out.println("HPが" + kizu + "回復した！");
 					System.out.println("HPが最大の" + h.getHPMAX() + "になった！");
 				} else {
+				//ダメージが二桁以上の時
 					setYakuso(getYakuso()-1);
 					h.setHP(h.getHP() + 10);
 					System.out.println("HPが10回復した！");
 					System.out.println("HP:" + h.getHP() + "/" + h.getHPMAX());
 				}
 			} else {
+			//無傷のとき
 				System.out.println("HPは十分にある。元気だから使わなくていいかな。");
 			}
 
 		} else {
+		//薬草がないとき
 			System.out.println("薬草がないため回復できない！");
 		}
 	}
