@@ -11,7 +11,7 @@ public class Bag {
 	final int tabakoMAX = 1;
 	final int elixirMAX = 1;
 
-	private int stockArray[] = {2, 3, 5, 1, 1};
+	private int stockArray[] = {8, 3, 5, 1, 1};
 
 	String infoArray[] = {
 	"使うとHPを10回復\n" +
@@ -165,20 +165,44 @@ public class Bag {
 	//アイテム使用のメソッド
 	public void useYakusoInB(Hero h) {
 		if (getYakuso() > 0) {
-			setYakuso(getYakuso() - 1);
-			h.setHP(h.getHP() + 1);
-			System.out.println("HPが10回復した！");
-			System.out.println("HP:" + h.getHP() + "/" + h.getHPMAX());
+			if(h.getHP() < h.getHPMAX()) {
+				int kizu = h.getHPMAX()-h.getHP();
+				if(kizu < 10) {
+					setYakuso(getYakuso()-1);
+					h.setHP(h.getHP() + kizu);
+					System.out.println("HPが" + kizu + "回復した！");
+					System.out.println("HPが最大の" + h.getHPMAX() + "になった！");
+				} else {
+					setYakuso(getYakuso()-1);
+					h.setHP(h.getHP() + 10);
+					System.out.println("HPが10回復した！");
+					System.out.println("HP:" + h.getHP() + "/" + h.getHPMAX());
+				}
+			} else {
+				System.out.println("HPは十分にある。元気だから使わなくていいかな。");
+			}
+
 		} else {
 			System.out.println("薬草がないため回復できない！");
 		}
 	}
 	public void useYakusoOutB(Hero h) {
 		if (getYakuso() > 0) {
-			setYakuso(getYakuso() - 1);
-			h.setHP(h.getHP() + 1);
-			System.out.println("HPが10回復した！");
-			System.out.println("HP:" + h.getHP() + "/" + h.getHPMAX());
+			if(h.getHP() < h.getHPMAX()) {
+				int kizu = h.getHPMAX()-h.getHP();
+				if(kizu < 10) {
+					setYakuso(getYakuso()-1);
+					h.setHP(h.getHP() + kizu);
+					System.out.println("HPが" + kizu + "回復した！");
+					System.out.println("HPが最大の" + h.getHPMAX() + "になった！");
+				} else {
+					setYakuso(getYakuso()-1);
+					h.setHP(h.getHP() + 10);
+					System.out.println("HPが10回復した！");
+					System.out.println("HP:" + h.getHP() + "/" + h.getHPMAX());
+				}			} else {
+				System.out.println("HPは十分にある。元気だから使わなくていいかな。");
+			}
 		} else {
 			System.out.println("薬草がないため回復できない！");
 		}
@@ -257,10 +281,7 @@ public class Bag {
 
 	public void checkMAX(int i, int MAX) {
 //		何かイベント上でアイテムが増えるときは必ず
-//		Setterの前に
-//		（現在の所持数 + 受け渡すアイテム数)を引数i、
-//		該当するアイテムの最大所持数をMAXとして
-//		このメソッドを実行する
+//		このメソッドを実行する→Setterに含めておいた
 		if (i > MAX) {
 			System.out.println("所持数がいっぱいだ！");
 			i = MAX;

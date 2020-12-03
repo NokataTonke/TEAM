@@ -48,7 +48,8 @@ public class Menu {
 				case 0:
 			}
 		}
-	}
+}
+
 
 //			case 1:
 //				s.goItemShop(b);
