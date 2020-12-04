@@ -8,7 +8,7 @@ public class ItemShopSell {
 		System.out.println
 				("アイテム屋のおばちゃん：「何を売りたいんだい？」");
 		System.out.println
-				("[あなたの所持金] \\" + b.money);
+				("[あなたの所持金] \\" + b.gold);
 		System.out.println();
 		System.out.println(
 				"1.薬草(\\100)" + "(" + b.getYakuso() + "有)　" +
@@ -47,7 +47,7 @@ public class ItemShopSell {
 			System.out.println
 					("アイテム屋のおばちゃん：「他にも売りたい物はあるかい？」");
 			System.out.println
-					("[あなたの所持金] \\" + b.money);
+					("[あなたの所持金] \\" + b.gold);
 			System.out.println();
 			System.out.println(
 					"1.薬草(\\100)" + "(" + b.getYakuso() + "有)　" +
@@ -80,7 +80,7 @@ public class ItemShopSell {
 					System.out.println
 							("アイテム屋のおばちゃん：「他にも何かようかい？」");
 					System.out.println
-							("[あなたの所持金] \\" + b.money);
+							("[あなたの所持金] \\" + b.gold);
 					System.out.println();
 					break;
 			}

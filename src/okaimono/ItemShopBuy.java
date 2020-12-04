@@ -8,7 +8,7 @@ public class ItemShopBuy {
 		System.out.println
 				("アイテム屋のおばちゃん：「何が欲しいんだい？」");
 		System.out.println
-				("[あなたの所持金] \\" + b.money);
+				("[あなたの所持金] \\" + Bag.gold);
 		System.out.println();
 		System.out.println(
 				"1.薬草(\\100)" + "(" + b.getYakuso() + "/" + b.yakusoMAX + "有)　" +
@@ -42,12 +42,13 @@ public class ItemShopBuy {
 
 		int k;
 		do {
+			//戻るの処理を0.番号にする
 			System.out.println
 					("-------------");
 			System.out.println
 					("アイテム屋のおばちゃん：「他に欲しい物はあるかい？」");
 			System.out.println
-					("[あなたの所持金] \\" + b.money);
+					("[あなたの所持金] \\" + Bag.gold);
 			System.out.println();
 			System.out.println(
 					"1.薬草(\\100)" + "(" + b.getYakuso() + "/" + b.yakusoMAX + "有)　" +
@@ -79,7 +80,7 @@ public class ItemShopBuy {
 					System.out.println
 							("アイテム屋のおばちゃん：「他にも何かようかい？」");
 					System.out.println
-							("[あなたの所持金] \\" + b.money);
+							("[あなたの所持金] \\" + Bag.gold);
 					System.out.println();
 					break;
 			}

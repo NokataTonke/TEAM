@@ -15,7 +15,6 @@ public class Menu {
 			//Weaponの名前と攻撃力を再設定
 			w.equipWeapon(w.equipNow);
 			//HeroのもつWeaponを再設定
-			h.setWeapon(w);
 
 			System.out.println("----------");
 			System.out.println();

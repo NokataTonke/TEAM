@@ -1,10 +1,10 @@
 package okaimono;
 
 public class BuyConfirm {
-	public void buyConfirm(Bag b, int i, int hBagItem) {
+	public void buyConfirm(Bag b, int i, int BagItem) {
 		String selectItem = null;
 		int selectPrice = 0;
-		int nowMoney = Bag.money;
+		int nowGold = Bag.gold;
 //		最大所持数でも買えるのはおかしい
 
 		switch(i) {
@@ -37,21 +37,21 @@ public class BuyConfirm {
 		System.out.print
 				("[値段] \\" + selectPrice + " × " + "{購入数を入力してください}>" );
 
-		int BaguyCount = new java.util.Scanner(System.in).nextInt();
+		int buyCount = new java.util.Scanner(System.in).nextInt();
 
 		System.out.println
-				("[値段] \\" + selectPrice + " × " + BaguyCount);
+				("[値段] \\" + selectPrice + " × " + buyCount);
 
 
 		System.out.println
-				("アイテム屋のおばちゃん：「" + BaguyCount + "個でいいんだね？」");
+				("アイテム屋のおばちゃん：「" + buyCount + "個でいいんだね？」");
 
 		System.out.println
-				("[あなたの所持金] \\" + Bag.money + "　→　\\" +
-				(nowMoney - (selectPrice * BaguyCount)));
+				("[あなたの所持金] \\" + Bag.gold + "　→　\\" +
+				(nowGold - (selectPrice * buyCount)));
 		System.out.println
 				(selectItem + "所持数：" +
-				hBagItem + "個　→　" + (hBagItem + BaguyCount) + "個");
+				BagItem + "個　→　" + (BagItem + buyCount) + "個");
 		System.out.println
 				("-------------");
 		System.out.println();
@@ -65,57 +65,57 @@ public class BuyConfirm {
 			if(j == 1) { // 買う。YESを選択した場合
 				switch(i) {
 				case 1:
-					if(Bag.money >= selectPrice * BaguyCount) {
+					if(Bag.gold >= selectPrice * buyCount) {
 						System.out.println
-								(selectItem + "を" + BaguyCount + "個手に入れた！");
-						b.setYakuso(b.getYakuso() + BaguyCount);
-//						setYakuso(Bag.getYakuso() + BaguyCount);
+								(selectItem + "を" + buyCount + "個手に入れた！");
+						b.setYakuso(b.getYakuso() + buyCount);
+//						setYakuso(Bag.getYakuso() + buyCount);
 //						これは無理
-						Bag.money -= selectPrice * BaguyCount;
+						Bag.gold -= selectPrice * buyCount;
 					} else {
 						System.out.println
 								("アイテム屋のおばちゃん：「お金が足りないじゃないか。」");
 					}
 					break;
 				case 2:
-					if(Bag.money >= selectPrice * BaguyCount) {
+					if(Bag.gold >= selectPrice * buyCount) {
 						System.out.println
-								(selectItem + "を" + BaguyCount + "個手に入れた！");
-						b.setEnmaku(b.getEnmaku() + BaguyCount);
-						Bag.money -= selectPrice * BaguyCount;
+								(selectItem + "を" + buyCount + "個手に入れた！");
+						b.setEnmaku(b.getEnmaku() + buyCount);
+						Bag.gold -= selectPrice * buyCount;
 					} else {
 						System.out.println
 								("アイテム屋のおばちゃん：「お金が足りないじゃないか。」");
 					}
 					break;
 				case 3:
-					if(Bag.money >= selectPrice * BaguyCount) {
+					if(Bag.gold >= selectPrice * buyCount) {
 						System.out.println
-								(selectItem + "を" + BaguyCount + "個手に入れた！");
-						b.setSake(b.getSake() + BaguyCount);
-						Bag.money -= selectPrice * BaguyCount;
+								(selectItem + "を" + buyCount + "個手に入れた！");
+						b.setSake(b.getSake() + buyCount);
+						Bag.gold -= selectPrice * buyCount;
 					} else {
 						System.out.println
 								("アイテム屋のおばちゃん：「お金が足りないじゃないか。」");
 					}
 					break;
 				case 4:
-					if(Bag.money >= selectPrice * BaguyCount) {
+					if(Bag.gold >= selectPrice * buyCount) {
 						System.out.println
-								(selectItem + "を" + BaguyCount + "個手に入れた！");
-						b.setTabako(b.getTabako() + BaguyCount);
-						Bag.money -= selectPrice * BaguyCount;
+								(selectItem + "を" + buyCount + "個手に入れた！");
+						b.setTabako(b.getTabako() + buyCount);
+						Bag.gold -= selectPrice * buyCount;
 					} else {
 						System.out.println
 								("アイテム屋のおばちゃん：「お金が足りないじゃないか。」");
 					}
 					break;
 				case 5:
-					if(Bag.money >= selectPrice * BaguyCount) {
+					if(Bag.gold >= selectPrice * buyCount) {
 						System.out.println
-								(selectItem + "を" + BaguyCount + "個手に入れた！");
-						b.setElixir(b.getElixir() + BaguyCount);
-						Bag.money -= selectPrice * BaguyCount;
+								(selectItem + "を" + buyCount + "個手に入れた！");
+						b.setElixir(b.getElixir() + buyCount);
+						Bag.gold -= selectPrice * buyCount;
 					} else {
 						System.out.println
 								("アイテム屋のおばちゃん：「お金が足りないじゃないか。」");
@@ -123,7 +123,7 @@ public class BuyConfirm {
 					break;
 			}
 				System.out.println
-						("[あなたの所持金] \\" + Bag.money);
+						("[あなたの所持金] \\" + Bag.gold);
 				System.out.println();
 
 			}

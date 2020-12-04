@@ -16,7 +16,7 @@ public class Hero {
 	private int MPMAX;
 	private int ATK;
 	private String name = "クラウド"; //実際はプロローグでプレイヤーが初期nameを決定する
-	private Weapon w;
+//	private Weapon w; //これはなくす
 	final int LevelMAX = 30;
 	final int EXPMAX = 349;
 	final int EXPArray[] = {
@@ -172,6 +172,7 @@ public class Hero {
 		}
 		return baseATK;
 	}
+	public void setATK(int ATK) {this.ATK = ATK;}
 	public String getName() {return this.name;}
 	public void setName(String name) {
 			if (name.length() < 7) {
@@ -180,9 +181,6 @@ public class Hero {
 				System.out.println("文字数は6文字以内です！");
 			}
 		}//ここで勇者名の文字数制限や縛りを記入する
-	public Weapon getWeapon() {return this.w;}
-	public void setWeapon(Weapon w) {this.w = w;}
-	public void setATK(int ATK) {this.ATK = ATK;}
 
 
 
@@ -216,7 +214,7 @@ public class Hero {
 					   + " MP:" + getMP() + "/" + getMPMAX()
 		);
 		System.out.println(
-				"　　　EXP:" + getEXP() + " 所持金:" + Bag.money
+				"　　　EXP:" + getEXP() + " 所持金:" + Bag.gold
 		);
 		System.out.println(
 				"　　　装備:" +
@@ -224,8 +222,8 @@ public class Hero {
 		);
 		System.out.println(
 				"　　　ATK:" +
-				(getATK() + getWeapon().getATK()) +
-				" = (" + getATK() + " + " + getWeapon().getATK() + ")"
+				(getATK() + w.getATK()) +
+				" = (" + getATK() + " + " + w.getATK() + ")"
 		);
 		System.out.println(
 				"　　　最深到達ダンジョン階数:" + "d.floor"

@@ -108,7 +108,7 @@ public class Weapon {
 						("攻撃力　▲　" + atkArray[k-1]);
 					System.out.print("　　");
 					System.out.println
-						((h.getATK() + h.getWeapon().getATK()) + " → "+ (h.getATK() + atkArray[k-1]));
+						((h.getATK() + getATK()) + " → "+ (h.getATK() + atkArray[k-1]));
 					System.out.println();
 					System.out.println
 						(infoArray[k-1]);

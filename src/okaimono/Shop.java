@@ -8,7 +8,7 @@ public class Shop {
 		System.out.println
 				("アイテム屋のおばちゃん：「いらっしゃい！いいものあるよ。」");
 		System.out.println
-				("[あなたの所持金] \\" + Bag.money);
+				("[あなたの所持金] \\" + Bag.gold);
 		System.out.println();
 
 		while(true) {

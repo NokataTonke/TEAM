@@ -3,7 +3,7 @@ package okaimono;
 import java.util.Scanner;
 
 public class Bag {
-	static int money = 1000;
+	static int gold = 1000;
 
 	final int yakusoMAX = 10;
 	final int enmakuMAX = 3;
