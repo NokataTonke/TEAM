@@ -11,12 +11,12 @@ public class ItemShopBuy {
 				("[あなたの所持金] \\" + Bag.gold);
 		System.out.println();
 		System.out.println(
-				"1.薬草(\\100)" + "(" + b.getYakuso() + "/" + b.yakusoMAX + "有)　" +
-				"2.エリクサー(\\250)" + "(" + b.getElixir() + "/" + b.elixirMAX + "有)　" +
+				"1.薬草(\\20)" + "(" + b.getYakuso() + "/" + b.yakusoMAX + "有)　" +
+				"2.煙幕(\\50)" + "(" + b.getEnmaku() + "/" + b.enmakuMAX + "有)　" +
 				"3.酒(\\300)" +  "(" + b.getSake() + "/" + b.sakeMAX + "有)　");
 		System.out.println(
-				"4.煙幕(\\500)" + "(" + b.getEnmaku() + "/" + b.enmakuMAX + "有)　" +
-				"5.タバコ(\\3000)" + "(" + b.getTabako() + "/" + b.tabakoMAX + "有)　");
+				"4.タバコ(\\550)" + "(" + b.getTobacco() + "/" + b.tobaccoMAX + "有)　" +
+				"5.エリクサー(\\3000)" + "(" + b.getElixir() + "/" + b.elixirMAX + "有)　");
 		System.out.println();
 
 		int i = new java.util.Scanner(System.in).nextInt();
@@ -27,16 +27,16 @@ public class ItemShopBuy {
 				bc.buyConfirm(b, 1, b.getYakuso());
 				break;
 			case 2:
-				bc.buyConfirm(b, 2, b.getElixir());
+				bc.buyConfirm(b, 2, b.getEnmaku());
 				break;
 			case 3:
 				bc.buyConfirm(b, 3, b.getSake());
 				break;
 			case 4:
-				bc.buyConfirm(b, 4, b.getEnmaku());
+				bc.buyConfirm(b, 4, b.getTobacco());
 				break;
 			case 5:
-				bc.buyConfirm(b, 5, b.getTabako());
+				bc.buyConfirm(b, 5, b.getElixir());
 				break;
 		}
 
@@ -52,11 +52,11 @@ public class ItemShopBuy {
 			System.out.println();
 			System.out.println(
 					"1.薬草(\\100)" + "(" + b.getYakuso() + "/" + b.yakusoMAX + "有)　" +
-					"2.エリクサー(\\250)" + "(" + b.getElixir() + "/" + b.elixirMAX + "有)　" +
+					"2.煙幕(\\250)" + "(" + b.getEnmaku() + "/" + b.enmakuMAX + "有)　" +
 					"3.酒(\\300)" +  "(" + b.getSake() + "/" + b.sakeMAX + "有)　");
 			System.out.println(
-					"4.煙幕(\\500)" + "(" + b.getEnmaku() + "/" + b.enmakuMAX + "有)　" +
-					"5.タバコ(\\3000)" + "(" + b.getTabako() + "/" + b.tabakoMAX + "有)　");
+					"4.タバコ(\\500)" + "(" + b.getTobacco() + "/" + b.tobaccoMAX + "有)　" +
+					"5.エリクサー(\\3000)" + "(" + b.getElixir() + "/" + b.elixirMAX + "有)　");
 			System.out.println();
 
 			k = new java.util.Scanner(System.in).nextInt();
@@ -65,16 +65,16 @@ public class ItemShopBuy {
 					bc.buyConfirm(b, 1, b.getYakuso());
 					break;
 				case 2:
-					bc.buyConfirm(b, 2, b.getElixir());
+					bc.buyConfirm(b, 2, b.getEnmaku());
 					break;
 				case 3:
 					bc.buyConfirm(b, 3, b.getSake());
 					break;
 				case 4:
-					bc.buyConfirm(b, 4, b.getEnmaku());
+					bc.buyConfirm(b, 4, b.getTobacco());
 					break;
 				case 5:
-					bc.buyConfirm(b, 5, b.getTabako());
+					bc.buyConfirm(b, 5, b.getElixir());
 					break;
 				case 6:
 					System.out.println

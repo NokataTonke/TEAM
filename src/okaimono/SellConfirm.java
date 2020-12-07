@@ -70,7 +70,7 @@ public class SellConfirm {
 							Bag.gold += sellingPrice;
 							break;
 						case 5:
-							b.setTabako(b.getTabako()-1);
+							b.setTobacco(b.getTobacco()-1);
 							Bag.gold += sellingPrice;
 							break;
 					}

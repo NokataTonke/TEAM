@@ -2,6 +2,8 @@ package okaimono;
 
 public class Shop {
 	//Shopのアイテムメニューの順番がめちゃくちゃだからそこは直す
+	int priceArray[] = {20, 50, 300, 550, 1};
+	int kaitoriArray[] = {10, 25, 150, 275, 1000};
 
 	public void goItemShop(Bag b) {
 		System.out.println("-------------");

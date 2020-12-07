@@ -3,41 +3,39 @@ package okaimono;
 import java.util.Scanner;
 
 public class Bag {
-	static int gold = 1000;
+	//フィールド
+	static int gold = 1000;//所持ゴールド
 
-	final int yakusoMAX = 10;
-	final int enmakuMAX = 3;
-	final int sakeMAX = 5;
-	final int tabakoMAX = 1;
-	final int elixirMAX = 1;
-//	最大所持数を教えてくれた方が親切
+	final int yakusoMAX = 10;//薬草最大所持数
+	final int enmakuMAX = 3;//煙幕最大所持数
+	final int sakeMAX = 5;//酒最大所持数
+	final int tobaccoMAX = 1;//タバコ最大所持数
+	final int elixirMAX = 1;//エリクサー最大所持数
 
-	private int stockArray[] = {8, 3, 5, 1, 1};
+	private int stockArray[] = //所持数
+		{8, 3, 5, 1, 1};
 
-	String infoArray[] = {
-	"使うとHPを10回復\n" +
-	"　　　　用法容量を守ろう",
-	"尋常ではない量の煙を起こす\n" +
-	"　　　　戦闘から退避する際に便利",
-	"気つけや嗜好品として使用される\n" +
-	"　　　　使うとテンションアップ",
-	"ニコチンとタールを摂取できる\n" +
-	"　　　　喫煙者の必需品",
-	"強力な秘薬\n" +
-	"　　　　使いどころが肝要"
+	String infoArray[] =//アイテム情報
+		{
+		"使うとHPを10回復\n" +
+		"　　　　用法容量を守ろう",
+		"尋常ではない量の煙を起こす\n" +
+		"　　　　戦闘から退避する際に便利",
+		"気つけや嗜好品として使用される\n" +
+		"　　　　使うとテンションアップ",
+		"ニコチンとタールを摂取できる\n" +
+		"　　　　喫煙者の必需品",
+		"強力な秘薬\n" +
+		"　　　　使いどころが肝要"
 	};
 
-	String nameArray[] = {
+	String nameArray[] = {//アイテム名
 		"薬草",
 		"煙幕",
 		"酒",
 		"タバコ",
 		"ｴﾘｸｻｰ"
 	};
-
-//	boolean h.inBattle = false;
-	// バトル中か否かを判定するために必要なフィールドをどこが持つか
-	// バトルクラスからHeroクラスかBagに書き込むなどいろいろ
 
 	//Getter,Setter
 	public int getYakuso() {return getCount(0);}
@@ -46,8 +44,8 @@ public class Bag {
 	public void setEnmaku(int enmaku) {checkMAX(enmaku, enmakuMAX);this.stockArray[1] = enmaku;}
 	public int getSake() {return getCount(2);}
 	public void setSake(int sake) {checkMAX(sake, sakeMAX);this.stockArray[2] = sake;}
-	public int getTabako() {return getCount(3);}
-	public void setTabako(int tabako) {checkMAX(tabako, tabakoMAX);this.stockArray[3] = tabako;}
+	public int getTobacco() {return getCount(3);}
+	public void setTobacco(int tobacco) {checkMAX(tobacco, tobaccoMAX);this.stockArray[3] = tobacco;}
 	public int getElixir() {return getCount(4);}
 	public void setElixir(int elixir) {checkMAX(elixir, elixirMAX);this.stockArray[4] = elixir;}
 
@@ -55,7 +53,7 @@ public class Bag {
 		return this.stockArray[n];
 	}
 
-//	アイテム表示のメソッド
+	//	アイテム表示のメソッド
 	public void showBag(Hero h, Bag b) {
 		int i = 0;
 		do{
@@ -71,7 +69,7 @@ public class Bag {
 			System.out.println
 					("　　　　3.酒　　：" + getSake() + "/" + sakeMAX + "個");
 			System.out.println
-					("　　　　4.タバコ：" + getTabako() + "/" + tabakoMAX + "個");
+					("　　　　4.タバコ：" + getTobacco() + "/" + tobaccoMAX + "個");
 			System.out.println
 					("　　　　5.ｴﾘｸｻｰ ：" + getElixir() + "/" + elixirMAX + "個");
 			System.out.println();
@@ -94,11 +92,7 @@ public class Bag {
 
 				k = new Scanner(System.in).nextInt();
 				if (k == 1) {
-					if (h.inBattle == true) {
-						b.useYakusoInB(h);
-					} else {
-						b.useYakusoOutB(h);
-					}
+					b.useYakuso(h);
 				}else if (k == 2) {
 					//何もしない
 				}
@@ -108,11 +102,7 @@ public class Bag {
 
 				k = new Scanner(System.in).nextInt();
 				if (k == 1) {
-					if (h.inBattle == true) {
-						b.useEnmakuInB(h);
-					} else {
-						b.useEnmakuOutB();
-					}
+					b.useEnmaku(h);
 				}else if (k == 2) {
 					//何もしない
 				}
@@ -122,11 +112,7 @@ public class Bag {
 
 				k = new Scanner(System.in).nextInt();
 				if (k == 1) {
-					if (h.inBattle == true) {
-						b.useSakeInB();
-					} else {
-						b.useSakeOutB();
-					}
+					b.useSake(h);
 				}else if (k == 2) {
 					//何もしない
 				}
@@ -136,11 +122,7 @@ public class Bag {
 
 				k = new Scanner(System.in).nextInt();
 				if (k == 1) {
-					if (h.inBattle == true) {
-						b.useTabakoInB();
-					} else {
-						b.useTabakoOutB();
-					}
+					b.useTobacco(h);
 				}else if (k == 2) {
 					//何もしない
 				}
@@ -150,11 +132,7 @@ public class Bag {
 
 				k = new Scanner(System.in).nextInt();
 				if (k == 1) {
-					if (h.inBattle == true) {
-						b.useElixirInB(h);
-					} else {
-						b.useElixirOutB();
-					}
+					b.useElixir(h);
 				}else if (k == 2) {
 					//何もしない
 				}
@@ -164,125 +142,134 @@ public class Bag {
 	}
 
 	//アイテム使用のメソッド
-	public void useYakusoInB(Hero h) {
-		if (getYakuso() > 0) {
-		//薬草があるとき
-			if(h.getHP() < h.getHPMAX()) {
-			//ダメージを受けているとき
-				int kizu = h.getHPMAX()-h.getHP();
-				if(kizu < 10) {
-				//ダメージが一桁のとき
-					setYakuso(getYakuso()-1);
-					h.setHP(h.getHP() + kizu);
-					System.out.println("HPが" + kizu + "回復した！");
-					System.out.println("HPが最大の" + h.getHPMAX() + "になった！");
+	public void useYakuso(Hero h) {
+		if(h.inBattle) {//バトル中
+			if (getYakuso() > 0) {
+			//薬草があるとき
+				if(h.getHP() < h.getHPMAX()) {
+				//ダメージを受けているとき
+					int kizu = h.getHPMAX()-h.getHP();
+					if(kizu < 10) {
+					//ダメージが一桁のとき
+						setYakuso(getYakuso()-1);
+						h.setHP(h.getHP() + kizu);
+						System.out.println("HPが" + kizu + "回復した！");
+						System.out.println("HPが最大の" + h.getHPMAX() + "になった！");
+					} else {
+					//ダメージが二桁以上の時
+						setYakuso(getYakuso()-1);
+						h.setHP(h.getHP() + 10);
+						System.out.println("HPが10回復した！");
+						System.out.println("HP:" + h.getHP() + "/" + h.getHPMAX());
+					}
 				} else {
-				//ダメージが二桁以上の時
-					setYakuso(getYakuso()-1);
-					h.setHP(h.getHP() + 10);
-					System.out.println("HPが10回復した！");
-					System.out.println("HP:" + h.getHP() + "/" + h.getHPMAX());
+				//無傷のとき
+					System.out.println("HPは十分にある。元気だから使わなくていいかな。");
+				}
+
+			} else {
+			//薬草がないとき
+				System.out.println("薬草がないため回復できない！");
+			}
+		} else {//バトル外
+			if (getYakuso() > 0) {
+				if(h.getHP() < h.getHPMAX()) {
+					int kizu = h.getHPMAX()-h.getHP();
+					if(kizu < 10) {
+						setYakuso(getYakuso()-1);
+						h.setHP(h.getHP() + kizu);
+						System.out.println("HPが" + kizu + "回復した！");
+						System.out.println("HPが最大の" + h.getHPMAX() + "になった！");
+					} else {
+						setYakuso(getYakuso()-1);
+						h.setHP(h.getHP() + 10);
+						System.out.println("HPが10回復した！");
+						System.out.println("HP:" + h.getHP() + "/" + h.getHPMAX());
+					}			} else {
+					System.out.println("HPは十分にある。元気だから使わなくていいかな。");
 				}
 			} else {
-			//無傷のとき
-				System.out.println("HPは十分にある。元気だから使わなくていいかな。");
+				System.out.println("薬草がないため回復できない！");
 			}
+		}
+	}
 
-		} else {
-		//薬草がないとき
-			System.out.println("薬草がないため回復できない！");
-		}
-	}
-	public void useYakusoOutB(Hero h) {
-		if (getYakuso() > 0) {
-			if(h.getHP() < h.getHPMAX()) {
-				int kizu = h.getHPMAX()-h.getHP();
-				if(kizu < 10) {
-					setYakuso(getYakuso()-1);
-					h.setHP(h.getHP() + kizu);
-					System.out.println("HPが" + kizu + "回復した！");
-					System.out.println("HPが最大の" + h.getHPMAX() + "になった！");
-				} else {
-					setYakuso(getYakuso()-1);
-					h.setHP(h.getHP() + 10);
-					System.out.println("HPが10回復した！");
-					System.out.println("HP:" + h.getHP() + "/" + h.getHPMAX());
-				}			} else {
-				System.out.println("HPは十分にある。元気だから使わなくていいかな。");
+	public void useEnmaku(Hero h) {
+		if(h.inBattle) {
+			if (getEnmaku() > 0) {
+				setEnmaku(getEnmaku() - 1);
+	//			h.run(); 逃げるを確定で実行できるような処理を実装
+			} else {
+				System.out.println("煙幕を持っていない");
 			}
 		} else {
-			System.out.println("薬草がないため回復できない！");
+			if (getEnmaku() > 0) {
+				setEnmaku(getEnmaku() - 1);
+				System.out.println("煙幕を使用した！");
+				System.out.println("煙たくなっただけだった");
+			} else {
+				System.out.println("煙幕を持っていない");
+			}
 		}
 	}
-	public void useEnmakuInB(Hero h) {
-		if (getEnmaku() > 0) {
-			setEnmaku(getEnmaku() - 1);
-//			h.run(); 逃げるを確定で実行できるような処理を実装
+
+	public void useSake(Hero h) {
+		if(h.inBattle) {
+			if (getSake() > 0) {
+				setSake(getSake() - 1);
+				System.out.println("戦闘中に酒を飲んだ！");
+				System.out.println("歌でも歌いたい様ないい気分だ！");
+			} else {
+				System.out.println("酒を持っていない");
+			}
 		} else {
-			System.out.println("煙幕を持っていない");
+			if (getSake() > 0) {
+				setSake(getSake() - 1);
+				System.out.println("昼から酒を飲んだ！");
+				System.out.println("陽気な気分になった！");
+			} else {
+				System.out.println("酒を持っていない");
+			}
 		}
 	}
-	public void useEnmakuOutB() {
-		if (getEnmaku() > 0) {
-			setEnmaku(getEnmaku() - 1);
-			System.out.println("煙幕を使用した！");
-			System.out.println("煙たくなっただけだった");
+
+	public void useTobacco(Hero h) {
+		if(h.inBattle) {
+			if (getTobacco() > 0) {
+				setTobacco(getTobacco() - 1);
+				System.out.println("戦闘中に喫煙した！");
+				System.out.println("ふぅ…落ち着いてきた");
+			} else {
+				System.out.println("タバコを切らしている");
+			}
 		} else {
-			System.out.println("煙幕を持っていない");
+			if (getTobacco() > 0) {
+				setTobacco(getTobacco() - 1);
+				System.out.println("路上喫煙に踏み切った！");
+				System.out.println("周りの視線が痛い！");
+			} else {
+				System.out.println("タバコを切らしている");
+			}
 		}
 	}
-	public void useSakeInB() {
-		if (getSake() > 0) {
-			setSake(getSake() - 1);
-			System.out.println("戦闘中に酒を飲んだ！");
-			System.out.println("歌でも歌いたい様ないい気分だ！");
+
+	public void useElixir(Hero h) {
+		if(h.inBattle) {
+			if (getElixir() > 0) {
+				setElixir(getElixir() - 1);
+				h.setHP(h.getHPMAX());
+				h.setMP(h.getMPMAX());
+				System.out.println("エリクサーを使用した！");
+				System.out.println("HPとMPが全回復した！");
+			} else {
+				System.out.println("エリクサーを持っていない");
+			}
 		} else {
-			System.out.println("酒を持っていない");
-		}
-	}
-	public void useSakeOutB() {
-		if (getSake() > 0) {
-			setSake(getSake() - 1);
-			System.out.println("昼から酒を飲んだ！");
-			System.out.println("陽気な気分になった！");
-		} else {
-			System.out.println("酒を持っていない");
-		}
-	}
-	public void useTabakoInB() {
-		if (getTabako() > 0) {
-			setTabako(getTabako() - 1);
-			System.out.println("戦闘中に喫煙した！");
-			System.out.println("ふぅ…落ち着いてきた");
-		} else {
-			System.out.println("タバコを切らしている");
-		}
-	}
-	public void useTabakoOutB() {
-		if (getTabako() > 0) {
-			setTabako(getTabako() - 1);
-			System.out.println("路上喫煙に踏み切った！");
-			System.out.println("周りの視線が痛い！");
-		} else {
-			System.out.println("タバコを切らしている");
-		}
-	}
-	public void useElixirInB(Hero h) {
-		if (getElixir() > 0) {
-			setElixir(getElixir() - 1);
-			h.setHP(h.getHPMAX());
-			h.setMP(h.getMPMAX());
-			System.out.println("エリクサーを使用した！");
-			System.out.println("HPとMPが全回復した！");
-		} else {
-			System.out.println("エリクサーを持っていない");
-		}
-	}
-	public void useElixirOutB() {
-		if (getElixir() > 0) {
-			System.out.println("エリクサーはあるものの…もったいない気がする");
-		} else {
-			System.out.println("エリクサーを持っていない");
+			if (getElixir() > 0) {
+				System.out.println("エリクサーはあるものの…もったいない気がする");
+			} else {
+				System.out.println("エリクサーを持っていない");
+			}
 		}
 	}
 

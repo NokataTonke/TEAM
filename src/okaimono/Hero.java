@@ -8,23 +8,23 @@ public class Hero {
 	//決定して勇者が誕生する
 
 	//フィールド
-	private int EXP;
-	private int Level;
-	private int HP;
-	private int MP;
-	private int HPMAX;
-	private int MPMAX;
-	private int ATK;
-	private String name = "クラウド"; //実際はプロローグでプレイヤーが初期nameを決定する
-//	private Weapon w; //これはなくす
-	final int LevelMAX = 30;
-	final int EXPMAX = 349;
-	final int EXPArray[] = {
+	private int EXP;//経験値
+	private int Level;//レベル
+	private int HP;//HP
+	private int MP;//MP
+	private int HPMAX;//最大HP
+	private int MPMAX;//最大MP
+	private int ATK;//最大攻撃力
+	private String name ="クラウド";//勇者名
+			//実際はプロローグでプレイヤーが初期nameを決定する
+	final int LevelMAX = 30;//最大レベル
+	final int EXPMAX = 349;//最大経験値
+	final int EXPArray[] = {//経験値階層
 		10, 10, 10, 10, 10, 10, 10, 10, 10,
 		20, 20, 20, 20, 20, 20, 20,
 		30, 30, 30, 30,
 	};
-	boolean inBattle;
+	boolean inBattle =true;//バトル中判定
 
 	//誕生コンテナ
 	public Hero() {
@@ -127,6 +127,7 @@ public class Hero {
 			this.HP = getHPMAX();
 		}
 	}
+
 	public int getMP() {return this.MP;}
 	public void setMP(int MP) {
 		if (MP < 0) {

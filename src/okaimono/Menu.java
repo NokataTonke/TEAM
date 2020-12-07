@@ -7,6 +7,8 @@ public class Menu {
 		Bag b = new Bag();
 		Weapon w = new Weapon();
 		Hero h = new Hero();
+//		MonsterBook mb = new MonsterBook();
+//		実際インスタンス化はメインクラスで行うためテスト用
 
 		Shop s = new Shop();//ショップクラスはMenuで使われない
 		int floor = 1;//ダンジョンインスタンスの.floor
@@ -43,6 +45,7 @@ public class Menu {
 					System.out.println("!【図鑑処理の画面表示】!");
 					System.out.println("！！！！！！！！！！！！！");
 					System.out.println();
+//					mb.showMonsterBook();とか？
 					break;
 				case 0://Shopテスト用選択肢（臨時）
 					s.goItemShop(b);

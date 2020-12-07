@@ -8,7 +8,7 @@ public class ItemShopSell {
 		System.out.println
 				("アイテム屋のおばちゃん：「何を売りたいんだい？」");
 		System.out.println
-				("[あなたの所持金] \\" + b.gold);
+				("[あなたの所持金] \\" + Bag.gold);
 		System.out.println();
 		System.out.println(
 				"1.薬草(\\100)" + "(" + b.getYakuso() + "有)　" +
@@ -16,7 +16,7 @@ public class ItemShopSell {
 				"3.酒(\\300)" +  "(" + b.getSake() + "有)　");
 		System.out.println(
 				"4.煙幕(\\500)" + "(" + b.getEnmaku() + "有)　" +
-				"5.タバコ(\\480)" + "(" + b.getTabako() + "有)　");
+				"5.タバコ(\\480)" + "(" + b.getTobacco() + "有)　");
 		System.out.println();
 
 		int i = new java.util.Scanner(System.in).nextInt();
@@ -36,7 +36,7 @@ public class ItemShopSell {
 				sc.sellConfirm(b, 4, b.getEnmaku());
 				break;
 			case 5:
-				sc.sellConfirm(b, 5, b.getTabako());
+				sc.sellConfirm(b, 5, b.getTobacco());
 				break;
 		}
 
@@ -47,7 +47,7 @@ public class ItemShopSell {
 			System.out.println
 					("アイテム屋のおばちゃん：「他にも売りたい物はあるかい？」");
 			System.out.println
-					("[あなたの所持金] \\" + b.gold);
+					("[あなたの所持金] \\" + Bag.gold);
 			System.out.println();
 			System.out.println(
 					"1.薬草(\\100)" + "(" + b.getYakuso() + "有)　" +
@@ -55,7 +55,7 @@ public class ItemShopSell {
 					"3.酒(\\300)" +  "(" + b.getSake() + "有)　");
 			System.out.println(
 					"4.煙幕(\\500)" + "(" + b.getEnmaku() + "有)　" +
-					"5.タバコ(\\480)" + "(" + b.getTabako() + "有)　" +
+					"5.タバコ(\\480)" + "(" + b.getTobacco() + "有)　" +
 					"6. もう大丈夫");
 			System.out.println();
 
@@ -74,13 +74,13 @@ public class ItemShopSell {
 					sc.sellConfirm(b, 4, b.getEnmaku());
 					break;
 				case 5:
-					sc.sellConfirm(b, 5, b.getTabako());
+					sc.sellConfirm(b, 5, b.getTobacco());
 					break;
 				case 6:
 					System.out.println
 							("アイテム屋のおばちゃん：「他にも何かようかい？」");
 					System.out.println
-							("[あなたの所持金] \\" + b.gold);
+							("[あなたの所持金] \\" + Bag.gold);
 					System.out.println();
 					break;
 			}

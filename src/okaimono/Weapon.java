@@ -4,36 +4,36 @@ import java.util.Scanner;
 
 public class Weapon {
 	//フィールド
-	int equipNow;
-	//現在装備してる武器
-	String equipName;
-	//装備中の装備名
-	int equipATK;
-	//装備中の装備攻撃力
-	boolean haveArray[] =
+
+	int equipNow;//現在装備してる武器を意味する数字
+				 //配列の添え字やswitch構文の条件として使用
+
+	String equipName;//装備中の装備名
+	int equipATK;//装備中の装備攻撃力
+	boolean haveArray[] =//装備所持判定
 		{true, false, true, false, false, true, true};
-	boolean equipArray[] =
+	boolean equipArray[] =//装備装着判定
 		{true, false, false, false, false, false, false};
-	String nameArray[] =
+	String nameArray[] =//装備名
 		{"ひのきの棒", "青銅の剣", "鉄の剣",
 		"鋼の剣", "チタン合金の剣", "伝説の剣", "素手"};
-	int atkArray[] = {10, 15, 25, 35, 45, 60, 0};
-
-	//説明書き
-	String infoArray[] = {
-			"　固い檜でできた棒\n" +
-			"　その辺に落ちている"	,
-			"　青銅でできた剣\n" +
-			"　文明の狼煙",
-			"　青銅でできた剣\n" +
-			"　文明の狼煙",
-			"　鋼でできた剣\n" +
-			"　練度が上がった鉄の剣",
-			"　チタン合金って知ってる？\n" +
-			"　まるで将棋だな",
-			"　言うまでもないレジェンド\n" +
-			"　但し使い手を選ぶ",
-			"　生まれたままの姿"
+	int atkArray[] =//攻撃力
+		{10, 15, 25, 35, 45, 60, 0};
+	String infoArray[] =//説明書き
+		{
+		"　固い檜でできた棒\n" +
+		"　その辺に落ちている"	,
+		"　青銅でできた剣\n" +
+		"　文明の狼煙",
+		"　青銅でできた剣\n" +
+		"　文明の狼煙",
+		"　鋼でできた剣\n" +
+		"　練度が上がった鉄の剣",
+		"　チタン合金って知ってる？\n" +
+		"　まるで将棋だな",
+		"　言うまでもないレジェンド\n" +
+		"　但し使い手を選ぶ",
+		"　生まれたままの姿"
 	};
 
 	//ゲッター、セッター

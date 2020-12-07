@@ -69,8 +69,6 @@ public class BuyConfirm {
 						System.out.println
 								(selectItem + "を" + buyCount + "個手に入れた！");
 						b.setYakuso(b.getYakuso() + buyCount);
-//						setYakuso(Bag.getYakuso() + buyCount);
-//						これは無理
 						Bag.gold -= selectPrice * buyCount;
 					} else {
 						System.out.println
@@ -103,7 +101,7 @@ public class BuyConfirm {
 					if(Bag.gold >= selectPrice * buyCount) {
 						System.out.println
 								(selectItem + "を" + buyCount + "個手に入れた！");
-						b.setTabako(b.getTabako() + buyCount);
+						b.setTobacco(b.getTobacco() + buyCount);
 						Bag.gold -= selectPrice * buyCount;
 					} else {
 						System.out.println
