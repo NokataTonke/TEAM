@@ -1,39 +1,34 @@
 package okaimono;
 
-public class Hero {
+import java.util.Scanner;
 
+public class Hero {
 	//インスタンス生成の前に下記private int EXPの初期値を確認する
 	//コンテナがその初期値に則りLevel,最大HP(=HP),最大MP(=MP),ATKを
 	//決定して勇者が誕生する
 
 	//フィールド
-	private int EXP = 123;
-	private int Level;
-	private int HP;
-	private int MP;
-	private int HPMAX;
-	private int MPMAX;
-	private int ATK;
-	private String name = "クラウド"; //実際はプロローグでプレイヤーが初期nameを決定する
-	private Weapon w;
-	final int LevelMAX = 30;
-	final int EXPMAX = 349;
-	final int EXPArray[] = {
+	private int EXP;//経験値
+	private int Level;//レベル
+	private int HP;//HP
+	private int MP;//MP
+	private int HPMAX;//最大HP
+	private int MPMAX;//最大MP
+	private int ATK;//最大攻撃力
+	private String name ="クラウド";//勇者名
+			//実際はプロローグでプレイヤーが初期nameを決定する
+	final int LevelMAX = 30;//最大レベル
+	final int EXPMAX = 349;//最大経験値
+	final int EXPArray[] = {//経験値階層
 		10, 10, 10, 10, 10, 10, 10, 10, 10,
 		20, 20, 20, 20, 20, 20, 20,
 		30, 30, 30, 30,
 	};
+	boolean inBattle =true;//バトル中判定
 
 	//誕生コンテナ
 	public Hero() {
 		setLevel();
-		setHP(getHPMAX());
-		setMP(getMPMAX());
-		setATK(getATK());
-	}
-	//宿屋用コンテナ（冗長かも）
-	public Hero(int nowEXP) {
-		setLevel(nowEXP);
 		setHP(getHPMAX());
 		setMP(getMPMAX());
 		setATK(getATK());
@@ -60,21 +55,23 @@ public class Hero {
 		//あといくつのEXPでレベルアップするか計算
 		int nextEXP = 0;
 		int restEXP;
-
 		for (int j=0; j<getLevel(); j++) {
 			nextEXP += EXPArray[j];
 		}
-
 		restEXP = nextEXP - getEXP();
 		return restEXP;
 	}
 	public void checkLevelUP(int gainEXP) {
 		//獲得経験値量によってレベルが上がるかどうか判定してEXPを設定
 		if(gainEXP >= restEXP()) {
-			LevelUP(getLevel() + 1);
+			//2レベル以上上がっても大丈夫！
 			setEXP(getEXP() + gainEXP);
+			setLevel(getEXP());
+			System.out.println("レベルがあがった！");
+			System.out.println("レベルが" + getLevel() + "になった！");
 		}else {
 			setEXP(getEXP() + gainEXP);
+			setLevel(getEXP());//これはなくても大丈夫だけど保険として
 		}
 	}
 	public int getLevel() {
@@ -88,7 +85,7 @@ public class Hero {
 		}
 	}
 	public void setLevel() {
-		//コンテナレベルSetterメソッド
+		//レベルSetterメソッド
 		int count = 0;
 		int expSUM = 0;
 
@@ -103,9 +100,7 @@ public class Hero {
 		LevelUP(count);
 	}
 	public void setLevel(int nowEXP) {
-		//コンテナ宿屋クラス用レベルSetterオーバーロードメソッド
-		//変数nowEXPで現在のHeroインスタンスから獲得経験値を受け取って引数に代入し、
-		//新しく生まれ変わるイメージ
+		//レベルSetterメソッドの引数とるver
 		int count = 0;
 		int expSUM = 0;
 
@@ -116,15 +111,10 @@ public class Hero {
 				break;
 			}
 		}
-
 		LevelUP(count);
 	}
 
-
-
-	public int getHP() {
-		return this.HP;
-	}
+	public int getHP() {return this.HP;}
 	public void setHP(int HP) {
 //		HPが0以下になるときはバトルクラスで判定するはずなので記述は見送る
 //		if (HP < 0) {
@@ -137,12 +127,12 @@ public class Hero {
 			this.HP = getHPMAX();
 		}
 	}
-	public int getMP() {
-		return this.MP;
-	}
+
+	public int getMP() {return this.MP;}
 	public void setMP(int MP) {
 		if (MP < 0) {
 			System.out.println("MPが負の値です！");
+			//MP負の値なのに回復できるのはおかしい！
 		}
 		//最大MPを超える加算が行われる場合は最大MPになる処理に分岐
 		if(MP <= getMPMAX()) {
@@ -183,22 +173,15 @@ public class Hero {
 		}
 		return baseATK;
 	}
-	public String getName() {
-		return this.name;
-	}
+	public void setATK(int ATK) {this.ATK = ATK;}
+	public String getName() {return this.name;}
 	public void setName(String name) {
-//		ここで勇者名の文字数制限や縛りを記入する
-		this.name = name;
-	}
-	public Weapon getWeapon() {
-		return this.w;
-	}
-	public void setWeapon(Weapon w) {
-		this.w = w;
-	}
-	public void setATK(int ATK) {
-		this.ATK = ATK;
-	}
+			if (name.length() < 7) {
+				this.name = name;
+			} else {
+				System.out.println("文字数は6文字以内です！");
+			}
+		}//ここで勇者名の文字数制限や縛りを記入する
 
 
 
@@ -208,8 +191,11 @@ public class Hero {
 //	public void run() {
 		//バトルで使用される逃げるメソッドの中身をここに記述
 //	}
+//	public void aid() {
+//
+//	}
 
-	public void showStatus() {
+	public void showStatus(Bag b, Weapon w, int d) {
 		System.out.println("----------");
 		System.out.println();
 
@@ -225,29 +211,32 @@ public class Hero {
 
 		System.out.println();
 		System.out.println(
-				"　　　　　HP:" + getHP() + "/" + getHPMAX()
+				"　　　HP:" + getHP() + "/" + getHPMAX()
 					   + " MP:" + getMP() + "/" + getMPMAX()
 		);
 		System.out.println(
-				"　　　　　EXP:" + getEXP() + " 所持金:" + Bag.money
+				"　　　EXP:" + getEXP() + " 所持金:" + Bag.gold
 		);
 		System.out.println(
-				"　　　　　装備:" +
-						getWeapon().getName() + "(ATK:" + getWeapon().getATK() + ")"
+				"　　　装備:" +
+						w.getName() + "(ATK:" + w.getATK() + ")"
 		);
 		System.out.println(
-				"　　　　　ATK:" +
-				(getATK() + getWeapon().getATK()) +
-				" = (" + getATK() + " + " + getWeapon().getATK() + ")"
+				"　　　ATK:" +
+				(getATK() + w.getATK()) +
+				" = (" + getATK() + " + " + w.getATK() + ")"
 		);
 		System.out.println(
-				"　　　　　最深到達ダンジョン階数:" + "ほにゃ"
+				"　　　最深到達ダンジョン階数:" + "d.floor"
 		);
 //		ほにゃの代わりにバトルクラスから階数フィールドの値を取得して表記する
 
 		System.out.println();
-		System.out.println("　　　　　　　　0.戻る");
+		System.out.println("　　　　　press Enter to back");
 		System.out.println("----------");
+
+		String j;
+		j = new Scanner(System.in).nextLine();
 	}
 
 }
