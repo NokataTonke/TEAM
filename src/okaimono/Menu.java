@@ -52,21 +52,6 @@ public class Menu {
 					break;
 			}
 		}
-}
-
-
-//			case 1:
-//				s.goItemShop(b);
-//				break;
-//			case 2:
-//
-//				System.out.println();
-//				System.out.println("！！！！！！！！！！！！！");
-//				System.out.println("!【この処理はまだ未完成】!");
-//				System.out.println("！！！！！！！！！！！！！");
-//				System.out.println();
-//
-//				s.goWeaponShop(w);
-//				break;
+	}
 }
 

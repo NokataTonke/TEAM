@@ -77,6 +77,7 @@ public class Bag {
 					("{アイテムNo.を入力してください}(0.戻る)>");
 			System.out.println
 					("-------------");
+
 			System.out.println();
 
 			i = new Scanner(System.in).nextInt();
