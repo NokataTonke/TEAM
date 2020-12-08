@@ -7,6 +7,7 @@ public class Menu {
 		Bag b = new Bag();
 		Weapon w = new Weapon();
 		Hero h = new Hero();
+		Dungeon d = new Dungeon();
 //		MonsterBook mb = new MonsterBook();
 //		実際インスタンス化はメインクラスで行うためテスト用
 
@@ -48,7 +49,7 @@ public class Menu {
 //					mb.showMonsterBook();とか？
 					break;
 				case 0://Shopテスト用選択肢（臨時）
-					s.goItemShop(b);
+					s.goWeaponShop(w, d);
 					break;
 			}
 		}

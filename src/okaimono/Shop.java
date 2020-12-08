@@ -41,14 +41,45 @@ public class Shop {
 			}
 		}
 	}
-	public void goWeaponShop(Weapon w) {
+	public void goWeaponShop(Weapon w ,Dungeon d) {
 		System.out.println
 				("-------------");
 		System.out.println
 				("武具屋の親父：「らっしゃい！調子はどうだい？」");
 		System.out.println();
+		System.out.println
+				("[あなたの所持金] \\" + Bag.gold);
+		System.out.println();
 
+		while(true) {
+			System.out.println
+					("1.買う 2.売る 3.話す 4.武具屋を去る");
+			int i = new java.util.Scanner(System.in).nextInt();
+			switch (i) {
+				case 1:
+					WeaponShopBuy wsb = new WeaponShopBuy();
+					wsb.optionDisply(w, d);
+					break;
+				case 2:
+					WeaponShopSell wss = new WeaponShopSell();
+					wss.optionDisply(w);
+					break;
+				case 3:
+					WeaponShopTalk.toOttyan();
+					break;
+				case 4:
+					System.out.println
+							("武具屋の親父：「おう、また来いよ！」");
+					System.out.println();
+					break;
+				default:
+			}
+			if(i == 4) {
+				break;
+			}
+		}
 	}
+}
 //	public class EnterTest {
 //
 //		public static void main(String[] args)throws InterruptedException {
@@ -80,4 +111,3 @@ public class Shop {
 //
 //	    }
 //	}
-}

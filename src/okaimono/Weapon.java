@@ -11,7 +11,7 @@ public class Weapon {
 	String equipName;//装備中の装備名
 	int equipATK;//装備中の装備攻撃力
 	boolean haveArray[] =//装備所持判定
-		{true, false, true, false, false, true, true};
+		{true, false, false, false, false, false, false};
 	boolean equipArray[] =//装備装着判定
 		{true, false, false, false, false, false, false};
 	String nameArray[] =//装備名
@@ -180,19 +180,11 @@ public class Weapon {
 
 	//装備装着、装備解除メソッド
 	public void armWeapon(int number) {
+		equipArray[equipNow] = false;
 		equipArray[number] = true;
+		equipNow = number;
 	}
 	public void unarmWeapon(int number) {
 		equipArray[number] = false;
-	}
-
-	public void test() {
-		for(int i = 0; i < 3; i++) {
-			if(haveArray[i] == true) {
-				System.out.println("true ");
-			} else if (haveArray[i] == false){
-				System.out.println("false ");
-			}
-		}
 	}
 }

@@ -132,4 +132,8 @@ public class BuyConfirm {
 
 			}
 	}
+
+	public void buyConfirmW(Weapon w, Dungeon d) {
+
+	}
 }

@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Bag {
 	//フィールド
-	static int gold = 1000;//所持ゴールド
+	static int gold = 100000;//所持ゴールド
 
 	final int yakusoMAX = 10;//薬草最大所持数
 	final int enmakuMAX = 3;//煙幕最大所持数
