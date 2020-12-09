@@ -40,7 +40,7 @@ public class WeaponShopBuy {
 			}
 		}
 		if (d.floor >= 3) {
-			System.out.println("5.チタン合金の剣 "  + priceArray[4] + "G");
+			System.out.print("5.チタン合金の剣 "  + priceArray[4] + "G");
 			if(w.haveArray[4]) {
 				System.out.println("　ある");
 			} else {
@@ -125,7 +125,7 @@ public class WeaponShopBuy {
 				}
 			}
 			if (d.floor >= 3) {
-				System.out.println("5.チタン合金の剣 "  + priceArray[4] + "G");
+				System.out.print("5.チタン合金の剣 "  + priceArray[4] + "G");
 				if(w.haveArray[4]) {
 					System.out.println("　ある");
 				} else {

@@ -187,4 +187,13 @@ public class Weapon {
 	public void unarmWeapon(int number) {
 		equipArray[number] = false;
 	}
+
+	public void getLegend() {
+		haveArray[5] = true;
+	}
+	public void setLegend() {
+		equipArray[equipNow] = false;
+		equipArray[5] = true;
+		equipNow = 5;
+	}
 }
